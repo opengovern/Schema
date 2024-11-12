@@ -7,6 +7,9 @@ const readFiles = () =>{
 
     const request = new XMLHttpRequest();
     request.open("GET", directory, true);
+      const temp = [];
+      const temp1 = [];
+
 
     request.onload = () => {
       // succesful response
@@ -18,23 +21,31 @@ const readFiles = () =>{
         );
         // get all links
         const links = doc.querySelectorAll(selector);
-
         links.forEach((link) => {
             // get table list div
-            const tableList = document.getElementById("table-list");
-            // add <a> tag in the table list with the name of the file
-            tableList.innerHTML += `<a class="table-link" id="${link.getAttribute(
-              "title"
-            )}" href="#${link.getAttribute("title")}">${link.getAttribute(
-              "title"
-            ).replace(".md","")}</a>`;
+            
+            temp1.push(
+              `<a class="table-link" id="${link.getAttribute(
+                "title"
+              )}" href="#${link.getAttribute("title")}">${link
+                .getAttribute("title")
+                .replace(".md", "")}</a>`
+            );
             // get tables div
+            temp.push(
+              `<zero-md id="${link.getAttribute(
+                "title"
+              )}" src="${link.getAttribute("href")}"></zero-md>`
+            );
             // const table = document.getElementById("tables");
             // table.innerHTML += `  <zero-md src="${link.getAttribute("href")}"></zero-md>`;
+            
         });
       }
     };
     request.send();
+   
+
 }
 
-document.onload=readFiles();
+// document.onload=readFiles();

@@ -14,7 +14,8 @@
 }
 #tables{
     height: 80vh;
-    overflow: auto;
+    /* overflow: auto; */
     margin-top: 5rem;
    
 }
+html {scroll-behavior: smooth;}
