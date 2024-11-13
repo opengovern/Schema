@@ -1,5 +1,5 @@
 const readFiles = () => {
-  const directory = "/integrations/platform/";
+  const directory = "/integrations/entraid/";
 
   // selector for the relevant links in the directory's index page
   const selector = "a[href$='.md']";
@@ -22,31 +22,17 @@ const readFiles = () => {
       links.forEach((link) => {
         // get table list div
 
-        temp1.push(
-          `<a class="table-link" id="${link.getAttribute(
-            "title"
-          )}" href="#${link.getAttribute("title")}">${link
-            .getAttribute("title")
-            .replace(".md", "")}</a>`
-        );
+        temp1.push(link.getAttribute("title").replace(".md", ""));
         // get tables div
-        temp.push(
-          `<div class="table" id="${link.getAttribute("title")}">
-          <zero-md id="${link.getAttribute(
-            "title"
-          )}" src="https://raw.githubusercontent.com/opengovern/schema/main${link.getAttribute(
-            "href"
-          )}?raw=true"></zero-md>
-          </div>`
-        );
+        
         // const table = document.getElementById("tables");
         // table.innerHTML += `  <zero-md src="${link.getAttribute("href")}"></zero-md>`;
       });
     }
   };
   request.send();
-  console.log(temp)
+
   console.log(temp1)
 };
 
-// document.onload=readFiles();
+document.onload=readFiles();
