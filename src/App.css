@@ -97,7 +97,12 @@ body{
   justify-content: start;
   align-items: start;
   gap: 1rem;
-  margin: 5rem;
+  /* margin: 5rem; */
+  margin-top: 1.5rem;
+  margin-left: 2rem;
+  max-height: 85vh;
+  overflow-y: auto;
+
 }
 
 
@@ -119,7 +124,7 @@ body{
   padding: 0.5rem;
 }
 .awsui_list_l0dv0_1behr_221{
-  max-height: 100vh;
+  max-height: 85dvh;
     overflow: scroll;
 }
 
