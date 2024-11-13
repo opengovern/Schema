@@ -1,6 +1,4 @@
-import logo from './logo.svg';
 import './App.css';
-import { useEffect, useState } from 'react';
 import SideNavigation from "@cloudscape-design/components/side-navigation";
 import { resources } from './resources';
 import ReactMarkdown from "react-markdown";
@@ -105,6 +103,7 @@ function App() {
               >
                 <img
                   class="card-logo"
+                  alt="AWS logo"
                   src="https://raw.githubusercontent.com/opengovern/website/main/connectors/icons/aws.svg"
                 />
                 <span>
@@ -140,6 +139,7 @@ function App() {
               >
                 <img
                   class="card-logo"
+                  alt="Azure logo"
                   src="https://raw.githubusercontent.com/opengovern/website/main/connectors/icons/azure.svg"
                 />
                 <span>
@@ -175,6 +175,7 @@ function App() {
               >
                 <img
                   class="card-logo"
+                  alt="EntraID logo"
                   src="https://raw.githubusercontent.com/opengovern/website/main/connectors/icons/entraid.svg"
                 />
                 <span>
@@ -210,6 +211,7 @@ function App() {
               >
                 <img
                   class="card-logo"
+                  alt="Opengovernance logo"
                   src="https://raw.githubusercontent.com/opengovern/website/main/connectors/icons/open-governance.svg"
                 />
                 <span>
