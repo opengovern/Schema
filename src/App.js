@@ -1,26 +1,28 @@
-import './App.css';
+import "./App.css";
 import SideNavigation from "@cloudscape-design/components/side-navigation";
-import { resources } from './resources';
+import { resources } from "./resources";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import Button from "@cloudscape-design/components/button";
-import { useState } from 'react';
+import { useEffect, useState } from "react";
 
 function App() {
   const [selected, setselected] = useState(false);
   const [name, setname] = useState();
   const [selectedIndex, setSelectedIndex] = useState(0);
- const [content, setContent] = useState("");
- const [loading, setLoading] = useState(true);
+  const [content, setContent] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [types, setTypes] = useState([]);
   const selectIntegration = (name) => {
-    setselected(true);
-    setname(name);
-    getMarkdown(name,0);
-  }
-  const getMarkdown = (name,index) => {
-
-    const temp_index = index? index : 0;
+    if (name) {
+      setselected(true);
+      setname(name);
+      getMarkdown(name, 0);
+    }
+  };
+  const getMarkdown = (name, index) => {
+    const temp_index = index ? index : 0;
     setSelectedIndex(temp_index);
     setLoading(true);
     fetch(
@@ -31,8 +33,19 @@ function App() {
         setContent(text.replace("# Columns", ""));
         setLoading(false);
       });
-    
-  }
+  };
+  const getConnectors = () => {
+    fetch(
+      `https://raw.githubusercontent.com/opengovern/website/main/connectors/connectors.json`
+    )
+      .then((response) => response.json())
+      .then((text) => {
+        setTypes(text);
+      });
+  };
+  useEffect(() => {
+    getConnectors();
+  }, []);
 
   return (
     <>
@@ -42,7 +55,10 @@ function App() {
             <div className="col-3">
               <SideNavigation
                 activeHref={selectedIndex.toString()}
-                header={{ href: "1", text: "Tables" }}
+                header={{
+                  href: "1",
+                  text: `Tables(${resources[name].length})`,
+                }}
                 onFollow={(event) => {
                   if (!event.detail.external) {
                     event.preventDefault();
@@ -94,152 +110,53 @@ function App() {
         </>
       ) : (
         <>
-          <div className="container mt-2 main">
-            <div class="col-12 m-2 d-flex flex-row gap-2 flex-wrap">
-              <div
-                class="card d-flex p-4 flex-column"
-                onClick={() => {
-                  selectIntegration("aws");
-                }}
-              >
-                <img
-                  class="card-logo"
-                  alt="AWS logo"
-                  src="https://raw.githubusercontent.com/opengovern/website/main/connectors/icons/aws.svg"
-                />
-                <span>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s
-                </span>
-                <div class="card-link">
-                  <a class="card-a">Learn more</a>
-                  <div class="show-link">
-                    Show Tables
-                    <svg
-                      width="800px"
-                      height="800px"
-                      viewBox="0 0 1024 1024"
-                      class="icon"
-                      version="1.1"
-                      xmlns="http://www.w3.org/2000/svg"
+          <div className="container content card-content mt-2 main">
+            <div class="col-12 m-2 d-flex flex-row gap-4 flex-wrap">
+              {types.map((type) => {
+                return (
+                  <>
+                    <div
+                      class="card d-flex p-4 flex-column"
+                      onClick={() => {
+                        if (type.Tier === "Community") {
+                          selectIntegration(type.Directory);
+                        }
+                      }}
                     >
-                      <path
-                        d="M364.8 106.666667L298.666667 172.8 637.866667 512 298.666667 851.2l66.133333 66.133333L768 512z"
-                        fill="#2196F3"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="card d-flex p-4 flex-column"
-                onClick={() => {
-                  selectIntegration("azure");
-                }}
-              >
-                <img
-                  class="card-logo"
-                  alt="Azure logo"
-                  src="https://raw.githubusercontent.com/opengovern/website/main/connectors/icons/azure.svg"
-                />
-                <span>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s
-                </span>
-                <div class="card-link">
-                  <a class="card-a">Learn more</a>
-                  <div class="show-link">
-                    Show Tables
-                    <svg
-                      width="800px"
-                      height="800px"
-                      viewBox="0 0 1024 1024"
-                      class="icon"
-                      version="1.1"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M364.8 106.666667L298.666667 172.8 637.866667 512 298.666667 851.2l66.133333 66.133333L768 512z"
-                        fill="#2196F3"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="card d-flex p-4 flex-column"
-                onClick={() => {
-                  selectIntegration("entraid");
-                }}
-              >
-                <img
-                  class="card-logo"
-                  alt="EntraID logo"
-                  src="https://raw.githubusercontent.com/opengovern/website/main/connectors/icons/entraid.svg"
-                />
-                <span>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s
-                </span>
-                <div class="card-link">
-                  <a class="card-a">Learn more</a>
-                  <div class="show-link">
-                    Show Tables
-                    <svg
-                      width="800px"
-                      height="800px"
-                      viewBox="0 0 1024 1024"
-                      class="icon"
-                      version="1.1"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M364.8 106.666667L298.666667 172.8 637.866667 512 298.666667 851.2l66.133333 66.133333L768 512z"
-                        fill="#2196F3"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="card d-flex p-4 flex-column"
-                onClick={() => {
-                  selectIntegration("platform");
-                }}
-              >
-                <img
-                  class="card-logo"
-                  alt="Opengovernance logo"
-                  src="https://raw.githubusercontent.com/opengovern/website/main/connectors/icons/open-governance.svg"
-                />
-                <span>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s
-                </span>
-                <div class="card-link">
-                  <a class="card-a">Learn more</a>
-                  <div class="show-link">
-                    Show Tables
-                    <svg
-                      width="800px"
-                      height="800px"
-                      viewBox="0 0 1024 1024"
-                      class="icon"
-                      version="1.1"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M364.8 106.666667L298.666667 172.8 637.866667 512 298.666667 851.2l66.133333 66.133333L768 512z"
-                        fill="#2196F3"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
+                      <div className="d-flex gap-3 flex-row">
+                        <img
+                          class="card-logo"
+                          alt={type.Connector}
+                          src={`https://raw.githubusercontent.com/opengovern/website/main/connectors/icons/${type.Icon}`}
+                        />
+                        <span class="card-title">{type.Connector}</span>
+                      </div>
+                      <span class={`card-tier ${type.Tier}`}>{type.Tier}</span>
+
+                      <span className="card-desc">{type.Description}</span>
+                      <div class="card-link">
+                        <a class="card-a">Learn more</a>
+                        <div class="show-link">
+                          Show Tables
+                          <svg
+                            width="800px"
+                            height="800px"
+                            viewBox="0 0 1024 1024"
+                            class="icon"
+                            version="1.1"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M364.8 106.666667L298.666667 172.8 637.866667 512 298.666667 851.2l66.133333 66.133333L768 512z"
+                              fill="#2196F3"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                );
+              })}
             </div>
           </div>
         </>

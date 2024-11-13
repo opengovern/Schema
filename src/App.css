@@ -1,12 +1,12 @@
 
 .card{
-    width: 30%;
-    height: 250px!important;
+    width: 32%;
+    height: 220px!important;
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: start;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .card-logo{
@@ -26,6 +26,8 @@
     min-width: max-content;
     text-decoration: none;
     color: rgb(174, 124, 221);
+  font-size: 0.8rem;
+
 
 }
 
@@ -34,12 +36,14 @@
     justify-content: center;
     align-items: center;
     gap: 0.25rem;
+  font-size: 0.8rem;
+
     cursor: pointer;
 
 }
 svg{
-    width: 20px;
-    height: 20px;
+    width: 12px;
+    height: 12px;
 }
 
 .content{
@@ -86,7 +90,10 @@ body{
   margin-top: 2rem;
   padding-top: 5rem;
   width: 100vw;
-  height: 100vh;
+  margin-bottom: 5rem;
+  padding-bottom: 5rem;
+
+  /* height: 100vh; */
 }
 
 .markdown{
@@ -133,4 +140,37 @@ body{
   display: flex;
   justify-content: end;
   
+}
+
+.card-title{
+  font-size: 1rem;
+  font-weight: bold;
+}
+.card-desc{
+  font-size: 0.8rem;
+  font-weight: normal;
+}
+
+body{
+  height: 100vh;
+  overflow-y: auto;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+}
+
+.card-tier{
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: rgb(174, 124, 221);
+  background-color: rgb(231, 216, 245);
+  border: 1px solid rgb(185, 152, 216);
+  padding: 0.3rem;
+  margin-top: -0.5rem;
+  margin-bottom: -0.5rem;
+  border-radius: 7px;
+}
+.card-tier.Community{
+  color: #B9E5E8;
+  background-color: #7AB2D3;
+  border: 1px solid #4A628A;
 }
