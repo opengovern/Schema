@@ -1,25 +1,23 @@
 name: Schema deploy gh-pages
 
 on:
-  workflow_dispatch:
-    inputs:
-      buildWebUI:
-        type: choice
-        description: "build web ui image"
-        options:
-          - "true"
-        default: "true"
   push:
     branches:
       - main  # Only run this workflow on pushes to the main branch
 
 jobs:
   build:
-    # Check if the last commit is a merge from the `ui-changes` branch
-    if:   github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    # Run the job only on `push` events to `main` branch
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: List files in root directory
+        run: ls -al
+
       - name: Use Node.js 20.x
         uses: actions/setup-node@v3
         with:
@@ -36,14 +34,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-npm-
 
-      - name: Run ls
-        run: ls      
+      - name: List files after cache setup
+        run: ls -al
+
       - name: Install Dependencies
         run: npm install
 
-      - name: Deploy to github pages
-        env:
-          CI: false
-        run: npm run deploy
+      - name: List files after npm install
+        run: ls -al
 
-     
+      - name: Deploy to GitHub Pages
+        run: npm run deploy
