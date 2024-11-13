@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
+
+    <!-- Load the element definition -->
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="integration.js"></script>
+    <title>Integration</title>
+  </head>
+  <body>
+    <div class="container  flex-row gap-2 content">
+      <div class=" sidebar">
+    <a class="table-link" id="azure_ad_group.md" href="#azure_ad_group.md">azure_ad_group</a>
+    <a class="table-link" id="azure_ad_service_principal.md" href="#azure_ad_service_principal.md">azure_ad_service_principal</a>
+    <a class="table-link" id="azure_ad_user.md" href="#azure_ad_user.md">azure_ad_user</a>
+    <a class="table-link" id="azure_analysisservices_servers.md" href="#azure_analysisservices_servers.md">azure_analysisservices_servers</a>
+    <a class="table-link" id="azure_api_management.md" href="#azure_api_management.md">azure_api_management</a>
+    <a class="table-link" id="azure_app_configuration.md" href="#azure_app_configuration.md">azure_app_configuration</a>
+    <a class="table-link" id="azure_app_containerapps.md" href="#azure_app_containerapps.md">azure_app_containerapps</a>
+    <a class="table-link" id="azure_app_managedenvironments.md" href="#azure_app_managedenvironments.md">azure_app_managedenvironments</a>
+    <a class="table-link" id="azure_app_service_environment.md" href="#azure_app_service_environment.md">azure_app_service_environment</a>
+    <a class="table-link" id="azure_app_service_function_app.md" href="#azure_app_service_function_app.md">azure_app_service_function_app</a>
+    <a class="table-link" id="azure_app_service_plan.md" href="#azure_app_service_plan.md">azure_app_service_plan</a>
+    <a class="table-link" id="azure_app_service_web_app_slot.md" href="#azure_app_service_web_app_slot.md">azure_app_service_web_app_slot</a>
+    <a class="table-link" id="azure_app_service_web_app.md" href="#azure_app_service_web_app.md">azure_app_service_web_app</a>
+    <a class="table-link" id="azure_application_gateway.md" href="#azure_application_gateway.md">azure_application_gateway</a>
+    <a class="table-link" id="azure_application_insight.md" href="#azure_application_insight.md">azure_application_insight</a>
+    <a class="table-link" id="azure_application_security_group.md" href="#azure_application_security_group.md">azure_application_security_group</a>
+    <a class="table-link" id="azure_automation_account.md" href="#azure_automation_account.md">azure_automation_account</a>
+    <a class="table-link" id="azure_automation_variable.md" href="#azure_automation_variable.md">azure_automation_variable</a>
+    <a class="table-link" id="azure_bastion_host.md" href="#azure_bastion_host.md">azure_bastion_host</a>
+    <a class="table-link" id="azure_batch_account.md" href="#azure_batch_account.md">azure_batch_account</a>
+    <a class="table-link" id="azure_blueprint_blueprints.md" href="#azure_blueprint_blueprints.md">azure_blueprint_blueprints</a>
+    <a class="table-link" id="azure_botservice_bot.md" href="#azure_botservice_bot.md">azure_botservice_bot</a>
+    <a class="table-link" id="azure_cache_redisenterprise.md" href="#azure_cache_redisenterprise.md">azure_cache_redisenterprise</a>
+    <a class="table-link" id="azure_cdn_endpoint.md" href="#azure_cdn_endpoint.md">azure_cdn_endpoint</a>
+    <a class="table-link" id="azure_cdn_profiles.md" href="#azure_cdn_profiles.md">azure_cdn_profiles</a>
+    <a class="table-link" id="azure_cognitive_account.md" href="#azure_cognitive_account.md">azure_cognitive_account</a>
+    <a class="table-link" id="azure_compute_availability_set.md" href="#azure_compute_availability_set.md">azure_compute_availability_set</a>
+    <a class="table-link" id="azure_compute_cloudservices.md" href="#azure_compute_cloudservices.md">azure_compute_cloudservices</a>
+    <a class="table-link" id="azure_compute_disk_access.md" href="#azure_compute_disk_access.md">azure_compute_disk_access</a>
+    <a class="table-link" id="azure_compute_disk_encryption_set.md" href="#azure_compute_disk_encryption_set.md">azure_compute_disk_encryption_set</a>
+    <a class="table-link" id="azure_compute_disk_metric_read_ops_daily.md" href="#azure_compute_disk_metric_read_ops_daily.md">azure_compute_disk_metric_read_ops_daily</a>
+    <a class="table-link" id="azure_compute_disk_metric_read_ops_hourly.md" href="#azure_compute_disk_metric_read_ops_hourly.md">azure_compute_disk_metric_read_ops_hourly</a>
+    <a class="table-link" id="azure_compute_disk_metric_read_ops.md" href="#azure_compute_disk_metric_read_ops.md">azure_compute_disk_metric_read_ops</a>
+    <a class="table-link" id="azure_compute_disk_metric_write_ops_daily.md" href="#azure_compute_disk_metric_write_ops_daily.md">azure_compute_disk_metric_write_ops_daily</a>
+    <a class="table-link" id="azure_compute_disk_metric_write_ops_hourly.md" href="#azure_compute_disk_metric_write_ops_hourly.md">azure_compute_disk_metric_write_ops_hourly</a>
+    <a class="table-link" id="azure_compute_disk_metric_write_ops.md" href="#azure_compute_disk_metric_write_ops.md">azure_compute_disk_metric_write_ops</a>
+    <a class="table-link" id="azure_compute_disk.md" href="#azure_compute_disk.md">azure_compute_disk</a>
+    <a class="table-link" id="azure_compute_host_group.md" href="#azure_compute_host_group.md">azure_compute_host_group</a>
+    <a class="table-link" id="azure_compute_host.md" href="#azure_compute_host.md">azure_compute_host</a>
+    <a class="table-link" id="azure_compute_image_gallery.md" href="#azure_compute_image_gallery.md">azure_compute_image_gallery</a>
+    <a class="table-link" id="azure_compute_image.md" href="#azure_compute_image.md">azure_compute_image</a>
+    <a class="table-link" id="azure_compute_resource_sku.md" href="#azure_compute_resource_sku.md">azure_compute_resource_sku</a>
+    <a class="table-link" id="azure_compute_restore_point_collection.md" href="#azure_compute_restore_point_collection.md">azure_compute_restore_point_collection</a>
+    <a class="table-link" id="azure_compute_snapshot.md" href="#azure_compute_snapshot.md">azure_compute_snapshot</a>
+    <a class="table-link" id="azure_compute_ssh_key.md" href="#azure_compute_ssh_key.md">azure_compute_ssh_key</a>
+    <a class="table-link" id="azure_compute_virtual_machine_metric_cpu_utilization_daily.md" href="#azure_compute_virtual_machine_metric_cpu_utilization_daily.md">azure_compute_virtual_machine_metric_cpu_utilization_daily</a>
+    <a class="table-link" id="azure_compute_virtual_machine_metric_cpu_utilization_hourly.md" href="#azure_compute_virtual_machine_metric_cpu_utilization_hourly.md">azure_compute_virtual_machine_metric_cpu_utilization_hourly</a>
+    <a class="table-link" id="azure_compute_virtual_machine_metric_cpu_utilization.md" href="#azure_compute_virtual_machine_metric_cpu_utilization.md">azure_compute_virtual_machine_metric_cpu_utilization</a>
+    <a class="table-link" id="azure_compute_virtual_machine_scale_set_network_interface.md" href="#azure_compute_virtual_machine_scale_set_network_interface.md">azure_compute_virtual_machine_scale_set_network_interface</a>
+    <a class="table-link" id="azure_compute_virtual_machine_scale_set_vm.md" href="#azure_compute_virtual_machine_scale_set_vm.md">azure_compute_virtual_machine_scale_set_vm</a>
+    <a class="table-link" id="azure_compute_virtual_machine_scale_set.md" href="#azure_compute_virtual_machine_scale_set.md">azure_compute_virtual_machine_scale_set</a>
+    <a class="table-link" id="azure_compute_virtual_machine.md" href="#azure_compute_virtual_machine.md">azure_compute_virtual_machine</a>
+    <a class="table-link" id="azure_container_group.md" href="#azure_container_group.md">azure_container_group</a>
+    <a class="table-link" id="azure_container_registry.md" href="#azure_container_registry.md">azure_container_registry</a>
+    <a class="table-link" id="azure_cosmosdb_account.md" href="#azure_cosmosdb_account.md">azure_cosmosdb_account</a>
+    <a class="table-link" id="azure_cosmosdb_mongo_database.md" href="#azure_cosmosdb_mongo_database.md">azure_cosmosdb_mongo_database</a>
+    <a class="table-link" id="azure_cosmosdb_restorable_database_account.md" href="#azure_cosmosdb_restorable_database_account.md">azure_cosmosdb_restorable_database_account</a>
+    <a class="table-link" id="azure_cosmosdb_sql_database.md" href="#azure_cosmosdb_sql_database.md">azure_cosmosdb_sql_database</a>
+    <a class="table-link" id="azure_costmanagement_costbyresourcetype.md" href="#azure_costmanagement_costbyresourcetype.md">azure_costmanagement_costbyresourcetype</a>
+    <a class="table-link" id="azure_costmanagement_costbysubscription.md" href="#azure_costmanagement_costbysubscription.md">azure_costmanagement_costbysubscription</a>
+    <a class="table-link" id="azure_dashboard_grafana.md" href="#azure_dashboard_grafana.md">azure_dashboard_grafana</a>
+    <a class="table-link" id="azure_data_factory_dataset.md" href="#azure_data_factory_dataset.md">azure_data_factory_dataset</a>
+    <a class="table-link" id="azure_data_factory_pipeline.md" href="#azure_data_factory_pipeline.md">azure_data_factory_pipeline</a>
+    <a class="table-link" id="azure_data_factory.md" href="#azure_data_factory.md">azure_data_factory</a>
+    <a class="table-link" id="azure_data_lake_analytics_account.md" href="#azure_data_lake_analytics_account.md">azure_data_lake_analytics_account</a>
+    <a class="table-link" id="azure_data_lake_store.md" href="#azure_data_lake_store.md">azure_data_lake_store</a>
+    <a class="table-link" id="azure_databox_edge_device.md" href="#azure_databox_edge_device.md">azure_databox_edge_device</a>
+    <a class="table-link" id="azure_databricks_workspaces.md" href="#azure_databricks_workspaces.md">azure_databricks_workspaces</a>
+    <a class="table-link" id="azure_datamigration_services.md" href="#azure_datamigration_services.md">azure_datamigration_services</a>
+    <a class="table-link" id="azure_dataprotection_backuppolicies.md" href="#azure_dataprotection_backuppolicies.md">azure_dataprotection_backuppolicies</a>
+    <a class="table-link" id="azure_dataprotection_backupvaults.md" href="#azure_dataprotection_backupvaults.md">azure_dataprotection_backupvaults</a>
+    <a class="table-link" id="azure_dbformysql_flexibleservers.md" href="#azure_dbformysql_flexibleservers.md">azure_dbformysql_flexibleservers</a>
+    <a class="table-link" id="azure_dbforpostgresql_flexibleservers.md" href="#azure_dbforpostgresql_flexibleservers.md">azure_dbforpostgresql_flexibleservers</a>
+    <a class="table-link" id="azure_desktop_virtualization_host_pool.md" href="#azure_desktop_virtualization_host_pool.md">azure_desktop_virtualization_host_pool</a>
+    <a class="table-link" id="azure_desktopvirtualization_workspace.md" href="#azure_desktopvirtualization_workspace.md">azure_desktopvirtualization_workspace</a>
+    <a class="table-link" id="azure_devtestlab_lab.md" href="#azure_devtestlab_lab.md">azure_devtestlab_lab</a>
+    <a class="table-link" id="azure_diagnostic_setting.md" href="#azure_diagnostic_setting.md">azure_diagnostic_setting</a>
+    <a class="table-link" id="azure_dns_zone.md" href="#azure_dns_zone.md">azure_dns_zone</a>
+    <a class="table-link" id="azure_eventgrid_domain.md" href="#azure_eventgrid_domain.md">azure_eventgrid_domain</a>
+    <a class="table-link" id="azure_eventgrid_topic.md" href="#azure_eventgrid_topic.md">azure_eventgrid_topic</a>
+    <a class="table-link" id="azure_eventhub_namespace.md" href="#azure_eventhub_namespace.md">azure_eventhub_namespace</a>
+    <a class="table-link" id="azure_eventhub_namespaceeventhubs.md" href="#azure_eventhub_namespaceeventhubs.md">azure_eventhub_namespaceeventhubs</a>
+    <a class="table-link" id="azure_express_route_circuit.md" href="#azure_express_route_circuit.md">azure_express_route_circuit</a>
+    <a class="table-link" id="azure_firewall_policy.md" href="#azure_firewall_policy.md">azure_firewall_policy</a>
+    <a class="table-link" id="azure_firewall.md" href="#azure_firewall.md">azure_firewall</a>
+    <a class="table-link" id="azure_frontdoor.md" href="#azure_frontdoor.md">azure_frontdoor</a>
+    <a class="table-link" id="azure_hdinsight_cluster.md" href="#azure_hdinsight_cluster.md">azure_hdinsight_cluster</a>
+    <a class="table-link" id="azure_healthcare_service.md" href="#azure_healthcare_service.md">azure_healthcare_service</a>
+    <a class="table-link" id="azure_hpc_cache.md" href="#azure_hpc_cache.md">azure_hpc_cache</a>
+    <a class="table-link" id="azure_hybrid_compute_machine.md" href="#azure_hybrid_compute_machine.md">azure_hybrid_compute_machine</a>
+    <a class="table-link" id="azure_hybrid_kubernetes_connected_cluster.md" href="#azure_hybrid_kubernetes_connected_cluster.md">azure_hybrid_kubernetes_connected_cluster</a>
+    <a class="table-link" id="azure_iothub_dps.md" href="#azure_iothub_dps.md">azure_iothub_dps</a>
+    <a class="table-link" id="azure_iothub.md" href="#azure_iothub.md">azure_iothub</a>
+    <a class="table-link" id="azure_key_vault_deleted_vault.md" href="#azure_key_vault_deleted_vault.md">azure_key_vault_deleted_vault</a>
+    <a class="table-link" id="azure_key_vault_key_version.md" href="#azure_key_vault_key_version.md">azure_key_vault_key_version</a>
+    <a class="table-link" id="azure_key_vault_key.md" href="#azure_key_vault_key.md">azure_key_vault_key</a>
+    <a class="table-link" id="azure_key_vault_managed_hardware_security_module.md" href="#azure_key_vault_managed_hardware_security_module.md">azure_key_vault_managed_hardware_security_module</a>
+    <a class="table-link" id="azure_key_vault_secret.md" href="#azure_key_vault_secret.md">azure_key_vault_secret</a>
+    <a class="table-link" id="azure_key_vault.md" href="#azure_key_vault.md">azure_key_vault</a>
+    <a class="table-link" id="azure_kubernetes_cluster.md" href="#azure_kubernetes_cluster.md">azure_kubernetes_cluster</a>
+    <a class="table-link" id="azure_kubernetes_service_version.md" href="#azure_kubernetes_service_version.md">azure_kubernetes_service_version</a>
+    <a class="table-link" id="azure_kusto_cluster.md" href="#azure_kusto_cluster.md">azure_kusto_cluster</a>
+    <a class="table-link" id="azure_lb_backend_address_pool.md" href="#azure_lb_backend_address_pool.md">azure_lb_backend_address_pool</a>
+    <a class="table-link" id="azure_lb_nat_rule.md" href="#azure_lb_nat_rule.md">azure_lb_nat_rule</a>
+    <a class="table-link" id="azure_lb_outbound_rule.md" href="#azure_lb_outbound_rule.md">azure_lb_outbound_rule</a>
+    <a class="table-link" id="azure_lb_probe.md" href="#azure_lb_probe.md">azure_lb_probe</a>
+    <a class="table-link" id="azure_lb_rule.md" href="#azure_lb_rule.md">azure_lb_rule</a>
+    <a class="table-link" id="azure_lb.md" href="#azure_lb.md">azure_lb</a>
+    <a class="table-link" id="azure_location.md" href="#azure_location.md">azure_location</a>
+    <a class="table-link" id="azure_log_alert.md" href="#azure_log_alert.md">azure_log_alert</a>
+    <a class="table-link" id="azure_log_profile.md" href="#azure_log_profile.md">azure_log_profile</a>
+    <a class="table-link" id="azure_logic_app_workflow.md" href="#azure_logic_app_workflow.md">azure_logic_app_workflow</a>
+    <a class="table-link" id="azure_logic_integrationaccounts.md" href="#azure_logic_integrationaccounts.md">azure_logic_integrationaccounts</a>
+    <a class="table-link" id="azure_machine_learning_workspace.md" href="#azure_machine_learning_workspace.md">azure_machine_learning_workspace</a>
+    <a class="table-link" id="azure_management_group.md" href="#azure_management_group.md">azure_management_group</a>
+    <a class="table-link" id="azure_management_lock.md" href="#azure_management_lock.md">azure_management_lock</a>
+    <a class="table-link" id="azure_mariadb_databases.md" href="#azure_mariadb_databases.md">azure_mariadb_databases</a>
+    <a class="table-link" id="azure_mariadb_server.md" href="#azure_mariadb_server.md">azure_mariadb_server</a>
+    <a class="table-link" id="azure_mssql_elasticpool.md" href="#azure_mssql_elasticpool.md">azure_mssql_elasticpool</a>
+    <a class="table-link" id="azure_mssql_managed_instance.md" href="#azure_mssql_managed_instance.md">azure_mssql_managed_instance</a>
+    <a class="table-link" id="azure_mssql_virtual_machine.md" href="#azure_mssql_virtual_machine.md">azure_mssql_virtual_machine</a>
+    <a class="table-link" id="azure_mysql_flexible_server.md" href="#azure_mysql_flexible_server.md">azure_mysql_flexible_server</a>
+    <a class="table-link" id="azure_mysql_server.md" href="#azure_mysql_server.md">azure_mysql_server</a>
+    <a class="table-link" id="azure_nat_gateway.md" href="#azure_nat_gateway.md">azure_nat_gateway</a>
+    <a class="table-link" id="azure_netapp_account.md" href="#azure_netapp_account.md">azure_netapp_account</a>
+    <a class="table-link" id="azure_netapp_capacity_pool.md" href="#azure_netapp_capacity_pool.md">azure_netapp_capacity_pool</a>
+    <a class="table-link" id="azure_network_connections.md" href="#azure_network_connections.md">azure_network_connections</a>
+    <a class="table-link" id="azure_network_ddos_protection_plan.md" href="#azure_network_ddos_protection_plan.md">azure_network_ddos_protection_plan</a>
+    <a class="table-link" id="azure_network_dnsresolver.md" href="#azure_network_dnsresolver.md">azure_network_dnsresolver</a>
+    <a class="table-link" id="azure_network_interface.md" href="#azure_network_interface.md">azure_network_interface</a>
+    <a class="table-link" id="azure_network_localnetworkgateways.md" href="#azure_network_localnetworkgateways.md">azure_network_localnetworkgateways</a>
+    <a class="table-link" id="azure_network_privateendpoints.md" href="#azure_network_privateendpoints.md">azure_network_privateendpoints</a>
+    <a class="table-link" id="azure_network_privatelinkservices.md" href="#azure_network_privatelinkservices.md">azure_network_privatelinkservices</a>
+    <a class="table-link" id="azure_network_publicipprefixes.md" href="#azure_network_publicipprefixes.md">azure_network_publicipprefixes</a>
+    <a class="table-link" id="azure_network_security_group.md" href="#azure_network_security_group.md">azure_network_security_group</a>
+    <a class="table-link" id="azure_network_virtualhubs.md" href="#azure_network_virtualhubs.md">azure_network_virtualhubs</a>
+    <a class="table-link" id="azure_network_virtualwans.md" href="#azure_network_virtualwans.md">azure_network_virtualwans</a>
+    <a class="table-link" id="azure_network_vpnconnections.md" href="#azure_network_vpnconnections.md">azure_network_vpnconnections</a>
+    <a class="table-link" id="azure_network_vpngateways.md" href="#azure_network_vpngateways.md">azure_network_vpngateways</a>
+    <a class="table-link" id="azure_network_vpnsites.md" href="#azure_network_vpnsites.md">azure_network_vpnsites</a>
+    <a class="table-link" id="azure_network_watcher_flow_log.md" href="#azure_network_watcher_flow_log.md">azure_network_watcher_flow_log</a>
+    <a class="table-link" id="azure_network_watcher.md" href="#azure_network_watcher.md">azure_network_watcher</a>
+    <a class="table-link" id="azure_operationalinsights_workspaces.md" href="#azure_operationalinsights_workspaces.md">azure_operationalinsights_workspaces</a>
+    <a class="table-link" id="azure_policy_assignment.md" href="#azure_policy_assignment.md">azure_policy_assignment</a>
+    <a class="table-link" id="azure_policy_definition.md" href="#azure_policy_definition.md">azure_policy_definition</a>
+    <a class="table-link" id="azure_postgresql_server.md" href="#azure_postgresql_server.md">azure_postgresql_server</a>
+    <a class="table-link" id="azure_powerbidedicated_capacity.md" href="#azure_powerbidedicated_capacity.md">azure_powerbidedicated_capacity</a>
+    <a class="table-link" id="azure_private_dns_zone.md" href="#azure_private_dns_zone.md">azure_private_dns_zone</a>
+    <a class="table-link" id="azure_provider.md" href="#azure_provider.md">azure_provider</a>
+    <a class="table-link" id="azure_public_ip.md" href="#azure_public_ip.md">azure_public_ip</a>
+    <a class="table-link" id="azure_purview_account.md" href="#azure_purview_account.md">azure_purview_account</a>
+    <a class="table-link" id="azure_recovery_services_vault.md" href="#azure_recovery_services_vault.md">azure_recovery_services_vault</a>
+    <a class="table-link" id="azure_redis_cache.md" href="#azure_redis_cache.md">azure_redis_cache</a>
+    <a class="table-link" id="azure_resource_group.md" href="#azure_resource_group.md">azure_resource_group</a>
+    <a class="table-link" id="azure_resource_link.md" href="#azure_resource_link.md">azure_resource_link</a>
+    <a class="table-link" id="azure_role_assignment.md" href="#azure_role_assignment.md">azure_role_assignment</a>
+    <a class="table-link" id="azure_role_definition.md" href="#azure_role_definition.md">azure_role_definition</a>
+    <a class="table-link" id="azure_route_table.md" href="#azure_route_table.md">azure_route_table</a>
+    <a class="table-link" id="azure_search_service.md" href="#azure_search_service.md">azure_search_service</a>
+    <a class="table-link" id="azure_security_center_auto_provisioning.md" href="#azure_security_center_auto_provisioning.md">azure_security_center_auto_provisioning</a>
+    <a class="table-link" id="azure_security_center_automation.md" href="#azure_security_center_automation.md">azure_security_center_automation</a>
+    <a class="table-link" id="azure_security_center_contact.md" href="#azure_security_center_contact.md">azure_security_center_contact</a>
+    <a class="table-link" id="azure_security_center_jit_network_access_policy.md" href="#azure_security_center_jit_network_access_policy.md">azure_security_center_jit_network_access_policy</a>
+    <a class="table-link" id="azure_security_center_setting.md" href="#azure_security_center_setting.md">azure_security_center_setting</a>
+    <a class="table-link" id="azure_security_center_sub_assessment.md" href="#azure_security_center_sub_assessment.md">azure_security_center_sub_assessment</a>
+    <a class="table-link" id="azure_security_center_subscription_pricing.md" href="#azure_security_center_subscription_pricing.md">azure_security_center_subscription_pricing</a>
+    <a class="table-link" id="azure_service_fabric_cluster.md" href="#azure_service_fabric_cluster.md">azure_service_fabric_cluster</a>
+    <a class="table-link" id="azure_servicebus_namespace.md" href="#azure_servicebus_namespace.md">azure_servicebus_namespace</a>
+    <a class="table-link" id="azure_signalr_service.md" href="#azure_signalr_service.md">azure_signalr_service</a>
+    <a class="table-link" id="azure_spring_cloud_service.md" href="#azure_spring_cloud_service.md">azure_spring_cloud_service</a>
+    <a class="table-link" id="azure_sql_database.md" href="#azure_sql_database.md">azure_sql_database</a>
+    <a class="table-link" id="azure_sql_instance_pool.md" href="#azure_sql_instance_pool.md">azure_sql_instance_pool</a>
+    <a class="table-link" id="azure_sql_managedinstancesdatabases.md" href="#azure_sql_managedinstancesdatabases.md">azure_sql_managedinstancesdatabases</a>
+    <a class="table-link" id="azure_sql_server.md" href="#azure_sql_server.md">azure_sql_server</a>
+    <a class="table-link" id="azure_sql_serversjobagents.md" href="#azure_sql_serversjobagents.md">azure_sql_serversjobagents</a>
+    <a class="table-link" id="azure_sql_virtualclusters.md" href="#azure_sql_virtualclusters.md">azure_sql_virtualclusters</a>
+    <a class="table-link" id="azure_sql_virtualmachinegroups.md" href="#azure_sql_virtualmachinegroups.md">azure_sql_virtualmachinegroups</a>
+    <a class="table-link" id="azure_storage_account.md" href="#azure_storage_account.md">azure_storage_account</a>
+    <a class="table-link" id="azure_storage_blob_service.md" href="#azure_storage_blob_service.md">azure_storage_blob_service</a>
+    <a class="table-link" id="azure_storage_blob.md" href="#azure_storage_blob.md">azure_storage_blob</a>
+    <a class="table-link" id="azure_storage_container.md" href="#azure_storage_container.md">azure_storage_container</a>
+    <a class="table-link" id="azure_storage_queue.md" href="#azure_storage_queue.md">azure_storage_queue</a>
+    <a class="table-link" id="azure_storage_share_file.md" href="#azure_storage_share_file.md">azure_storage_share_file</a>
+    <a class="table-link" id="azure_storage_sync.md" href="#azure_storage_sync.md">azure_storage_sync</a>
+    <a class="table-link" id="azure_storage_table_service.md" href="#azure_storage_table_service.md">azure_storage_table_service</a>
+    <a class="table-link" id="azure_storage_table.md" href="#azure_storage_table.md">azure_storage_table</a>
+    <a class="table-link" id="azure_stream_analytics_job.md" href="#azure_stream_analytics_job.md">azure_stream_analytics_job</a>
+    <a class="table-link" id="azure_streamanalytics_cluster.md" href="#azure_streamanalytics_cluster.md">azure_streamanalytics_cluster</a>
+    <a class="table-link" id="azure_subnet.md" href="#azure_subnet.md">azure_subnet</a>
+    <a class="table-link" id="azure_subscription.md" href="#azure_subscription.md">azure_subscription</a>
+    <a class="table-link" id="azure_synapse_workspace.md" href="#azure_synapse_workspace.md">azure_synapse_workspace</a>
+    <a class="table-link" id="azure_synapse_workspacesbigdatapools.md" href="#azure_synapse_workspacesbigdatapools.md">azure_synapse_workspacesbigdatapools</a>
+    <a class="table-link" id="azure_synapse_workspacessqlpools.md" href="#azure_synapse_workspacessqlpools.md">azure_synapse_workspacessqlpools</a>
+    <a class="table-link" id="azure_tenant.md" href="#azure_tenant.md">azure_tenant</a>
+    <a class="table-link" id="azure_timeseriesinsights_environments.md" href="#azure_timeseriesinsights_environments.md">azure_timeseriesinsights_environments</a>
+    <a class="table-link" id="azure_trafficmanager_profile.md" href="#azure_trafficmanager_profile.md">azure_trafficmanager_profile</a>
+    <a class="table-link" id="azure_virtual_network_gateway.md" href="#azure_virtual_network_gateway.md">azure_virtual_network_gateway</a>
+    <a class="table-link" id="azure_virtual_network.md" href="#azure_virtual_network.md">azure_virtual_network</a>
+    <a class="table-link" id="azure_virtualmachineimages_imagetemplates.md" href="#azure_virtualmachineimages_imagetemplates.md">azure_virtualmachineimages_imagetemplates</a>
+    <a class="table-link" id="azure_web_serverfarms.md" href="#azure_web_serverfarms.md">azure_web_serverfarms</a>
+</div>
+      <div class=" tables">
+    <div class="table" id="azure_ad_group.md">          <zero-md id="azure_ad_group.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_ad_group.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_ad_service_principal.md">          <zero-md id="azure_ad_service_principal.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_ad_service_principal.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_ad_user.md">          <zero-md id="azure_ad_user.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_ad_user.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_analysisservices_servers.md">          <zero-md id="azure_analysisservices_servers.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_analysisservices_servers.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_api_management.md">          <zero-md id="azure_api_management.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_api_management.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_app_configuration.md">          <zero-md id="azure_app_configuration.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_app_configuration.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_app_containerapps.md">          <zero-md id="azure_app_containerapps.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_app_containerapps.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_app_managedenvironments.md">          <zero-md id="azure_app_managedenvironments.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_app_managedenvironments.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_app_service_environment.md">          <zero-md id="azure_app_service_environment.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_app_service_environment.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_app_service_function_app.md">          <zero-md id="azure_app_service_function_app.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_app_service_function_app.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_app_service_plan.md">          <zero-md id="azure_app_service_plan.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_app_service_plan.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_app_service_web_app_slot.md">          <zero-md id="azure_app_service_web_app_slot.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_app_service_web_app_slot.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_app_service_web_app.md">          <zero-md id="azure_app_service_web_app.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_app_service_web_app.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_application_gateway.md">          <zero-md id="azure_application_gateway.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_application_gateway.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_application_insight.md">          <zero-md id="azure_application_insight.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_application_insight.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_application_security_group.md">          <zero-md id="azure_application_security_group.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_application_security_group.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_automation_account.md">          <zero-md id="azure_automation_account.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_automation_account.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_automation_variable.md">          <zero-md id="azure_automation_variable.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_automation_variable.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_bastion_host.md">          <zero-md id="azure_bastion_host.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_bastion_host.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_batch_account.md">          <zero-md id="azure_batch_account.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_batch_account.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_blueprint_blueprints.md">          <zero-md id="azure_blueprint_blueprints.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_blueprint_blueprints.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_botservice_bot.md">          <zero-md id="azure_botservice_bot.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_botservice_bot.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_cache_redisenterprise.md">          <zero-md id="azure_cache_redisenterprise.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_cache_redisenterprise.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_cdn_endpoint.md">          <zero-md id="azure_cdn_endpoint.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_cdn_endpoint.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_cdn_profiles.md">          <zero-md id="azure_cdn_profiles.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_cdn_profiles.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_cognitive_account.md">          <zero-md id="azure_cognitive_account.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_cognitive_account.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_compute_availability_set.md">          <zero-md id="azure_compute_availability_set.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_compute_availability_set.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_compute_cloudservices.md">          <zero-md id="azure_compute_cloudservices.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_compute_cloudservices.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_compute_disk_access.md">          <zero-md id="azure_compute_disk_access.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_compute_disk_access.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_compute_disk_encryption_set.md">          <zero-md id="azure_compute_disk_encryption_set.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_compute_disk_encryption_set.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_compute_disk_metric_read_ops_daily.md">          <zero-md id="azure_compute_disk_metric_read_ops_daily.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_compute_disk_metric_read_ops_daily.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_compute_disk_metric_read_ops_hourly.md">          <zero-md id="azure_compute_disk_metric_read_ops_hourly.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_compute_disk_metric_read_ops_hourly.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_compute_disk_metric_read_ops.md">          <zero-md id="azure_compute_disk_metric_read_ops.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_compute_disk_metric_read_ops.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_compute_disk_metric_write_ops_daily.md">          <zero-md id="azure_compute_disk_metric_write_ops_daily.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_compute_disk_metric_write_ops_daily.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_compute_disk_metric_write_ops_hourly.md">          <zero-md id="azure_compute_disk_metric_write_ops_hourly.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_compute_disk_metric_write_ops_hourly.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_compute_disk_metric_write_ops.md">          <zero-md id="azure_compute_disk_metric_write_ops.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_compute_disk_metric_write_ops.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_compute_disk.md">          <zero-md id="azure_compute_disk.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_compute_disk.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_compute_host_group.md">          <zero-md id="azure_compute_host_group.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_compute_host_group.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_compute_host.md">          <zero-md id="azure_compute_host.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_compute_host.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_compute_image_gallery.md">          <zero-md id="azure_compute_image_gallery.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_compute_image_gallery.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_compute_image.md">          <zero-md id="azure_compute_image.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_compute_image.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_compute_resource_sku.md">          <zero-md id="azure_compute_resource_sku.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_compute_resource_sku.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_compute_restore_point_collection.md">          <zero-md id="azure_compute_restore_point_collection.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_compute_restore_point_collection.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_compute_snapshot.md">          <zero-md id="azure_compute_snapshot.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_compute_snapshot.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_compute_ssh_key.md">          <zero-md id="azure_compute_ssh_key.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_compute_ssh_key.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_compute_virtual_machine_metric_cpu_utilization_daily.md">          <zero-md id="azure_compute_virtual_machine_metric_cpu_utilization_daily.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_compute_virtual_machine_metric_cpu_utilization_daily.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_compute_virtual_machine_metric_cpu_utilization_hourly.md">          <zero-md id="azure_compute_virtual_machine_metric_cpu_utilization_hourly.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_compute_virtual_machine_metric_cpu_utilization_hourly.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_compute_virtual_machine_metric_cpu_utilization.md">          <zero-md id="azure_compute_virtual_machine_metric_cpu_utilization.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_compute_virtual_machine_metric_cpu_utilization.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_compute_virtual_machine_scale_set_network_interface.md">          <zero-md id="azure_compute_virtual_machine_scale_set_network_interface.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_compute_virtual_machine_scale_set_network_interface.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_compute_virtual_machine_scale_set_vm.md">          <zero-md id="azure_compute_virtual_machine_scale_set_vm.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_compute_virtual_machine_scale_set_vm.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_compute_virtual_machine_scale_set.md">          <zero-md id="azure_compute_virtual_machine_scale_set.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_compute_virtual_machine_scale_set.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_compute_virtual_machine.md">          <zero-md id="azure_compute_virtual_machine.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_compute_virtual_machine.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_container_group.md">          <zero-md id="azure_container_group.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_container_group.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_container_registry.md">          <zero-md id="azure_container_registry.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_container_registry.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_cosmosdb_account.md">          <zero-md id="azure_cosmosdb_account.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_cosmosdb_account.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_cosmosdb_mongo_database.md">          <zero-md id="azure_cosmosdb_mongo_database.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_cosmosdb_mongo_database.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_cosmosdb_restorable_database_account.md">          <zero-md id="azure_cosmosdb_restorable_database_account.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_cosmosdb_restorable_database_account.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_cosmosdb_sql_database.md">          <zero-md id="azure_cosmosdb_sql_database.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_cosmosdb_sql_database.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_costmanagement_costbyresourcetype.md">          <zero-md id="azure_costmanagement_costbyresourcetype.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_costmanagement_costbyresourcetype.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_costmanagement_costbysubscription.md">          <zero-md id="azure_costmanagement_costbysubscription.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_costmanagement_costbysubscription.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_dashboard_grafana.md">          <zero-md id="azure_dashboard_grafana.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_dashboard_grafana.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_data_factory_dataset.md">          <zero-md id="azure_data_factory_dataset.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_data_factory_dataset.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_data_factory_pipeline.md">          <zero-md id="azure_data_factory_pipeline.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_data_factory_pipeline.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_data_factory.md">          <zero-md id="azure_data_factory.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_data_factory.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_data_lake_analytics_account.md">          <zero-md id="azure_data_lake_analytics_account.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_data_lake_analytics_account.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_data_lake_store.md">          <zero-md id="azure_data_lake_store.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_data_lake_store.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_databox_edge_device.md">          <zero-md id="azure_databox_edge_device.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_databox_edge_device.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_databricks_workspaces.md">          <zero-md id="azure_databricks_workspaces.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_databricks_workspaces.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_datamigration_services.md">          <zero-md id="azure_datamigration_services.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_datamigration_services.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_dataprotection_backuppolicies.md">          <zero-md id="azure_dataprotection_backuppolicies.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_dataprotection_backuppolicies.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_dataprotection_backupvaults.md">          <zero-md id="azure_dataprotection_backupvaults.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_dataprotection_backupvaults.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_dbformysql_flexibleservers.md">          <zero-md id="azure_dbformysql_flexibleservers.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_dbformysql_flexibleservers.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_dbforpostgresql_flexibleservers.md">          <zero-md id="azure_dbforpostgresql_flexibleservers.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_dbforpostgresql_flexibleservers.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_desktop_virtualization_host_pool.md">          <zero-md id="azure_desktop_virtualization_host_pool.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_desktop_virtualization_host_pool.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_desktopvirtualization_workspace.md">          <zero-md id="azure_desktopvirtualization_workspace.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_desktopvirtualization_workspace.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_devtestlab_lab.md">          <zero-md id="azure_devtestlab_lab.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_devtestlab_lab.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_diagnostic_setting.md">          <zero-md id="azure_diagnostic_setting.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_diagnostic_setting.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_dns_zone.md">          <zero-md id="azure_dns_zone.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_dns_zone.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_eventgrid_domain.md">          <zero-md id="azure_eventgrid_domain.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_eventgrid_domain.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_eventgrid_topic.md">          <zero-md id="azure_eventgrid_topic.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_eventgrid_topic.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_eventhub_namespace.md">          <zero-md id="azure_eventhub_namespace.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_eventhub_namespace.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_eventhub_namespaceeventhubs.md">          <zero-md id="azure_eventhub_namespaceeventhubs.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_eventhub_namespaceeventhubs.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_express_route_circuit.md">          <zero-md id="azure_express_route_circuit.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_express_route_circuit.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_firewall_policy.md">          <zero-md id="azure_firewall_policy.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_firewall_policy.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_firewall.md">          <zero-md id="azure_firewall.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_firewall.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_frontdoor.md">          <zero-md id="azure_frontdoor.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_frontdoor.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_hdinsight_cluster.md">          <zero-md id="azure_hdinsight_cluster.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_hdinsight_cluster.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_healthcare_service.md">          <zero-md id="azure_healthcare_service.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_healthcare_service.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_hpc_cache.md">          <zero-md id="azure_hpc_cache.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_hpc_cache.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_hybrid_compute_machine.md">          <zero-md id="azure_hybrid_compute_machine.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_hybrid_compute_machine.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_hybrid_kubernetes_connected_cluster.md">          <zero-md id="azure_hybrid_kubernetes_connected_cluster.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_hybrid_kubernetes_connected_cluster.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_iothub_dps.md">          <zero-md id="azure_iothub_dps.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_iothub_dps.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_iothub.md">          <zero-md id="azure_iothub.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_iothub.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_key_vault_deleted_vault.md">          <zero-md id="azure_key_vault_deleted_vault.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_key_vault_deleted_vault.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_key_vault_key_version.md">          <zero-md id="azure_key_vault_key_version.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_key_vault_key_version.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_key_vault_key.md">          <zero-md id="azure_key_vault_key.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_key_vault_key.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_key_vault_managed_hardware_security_module.md">          <zero-md id="azure_key_vault_managed_hardware_security_module.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_key_vault_managed_hardware_security_module.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_key_vault_secret.md">          <zero-md id="azure_key_vault_secret.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_key_vault_secret.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_key_vault.md">          <zero-md id="azure_key_vault.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_key_vault.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_kubernetes_cluster.md">          <zero-md id="azure_kubernetes_cluster.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_kubernetes_cluster.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_kubernetes_service_version.md">          <zero-md id="azure_kubernetes_service_version.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_kubernetes_service_version.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_kusto_cluster.md">          <zero-md id="azure_kusto_cluster.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_kusto_cluster.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_lb_backend_address_pool.md">          <zero-md id="azure_lb_backend_address_pool.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_lb_backend_address_pool.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_lb_nat_rule.md">          <zero-md id="azure_lb_nat_rule.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_lb_nat_rule.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_lb_outbound_rule.md">          <zero-md id="azure_lb_outbound_rule.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_lb_outbound_rule.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_lb_probe.md">          <zero-md id="azure_lb_probe.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_lb_probe.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_lb_rule.md">          <zero-md id="azure_lb_rule.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_lb_rule.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_lb.md">          <zero-md id="azure_lb.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_lb.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_location.md">          <zero-md id="azure_location.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_location.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_log_alert.md">          <zero-md id="azure_log_alert.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_log_alert.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_log_profile.md">          <zero-md id="azure_log_profile.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_log_profile.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_logic_app_workflow.md">          <zero-md id="azure_logic_app_workflow.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_logic_app_workflow.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_logic_integrationaccounts.md">          <zero-md id="azure_logic_integrationaccounts.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_logic_integrationaccounts.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_machine_learning_workspace.md">          <zero-md id="azure_machine_learning_workspace.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_machine_learning_workspace.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_management_group.md">          <zero-md id="azure_management_group.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_management_group.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_management_lock.md">          <zero-md id="azure_management_lock.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_management_lock.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_mariadb_databases.md">          <zero-md id="azure_mariadb_databases.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_mariadb_databases.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_mariadb_server.md">          <zero-md id="azure_mariadb_server.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_mariadb_server.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_mssql_elasticpool.md">          <zero-md id="azure_mssql_elasticpool.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_mssql_elasticpool.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_mssql_managed_instance.md">          <zero-md id="azure_mssql_managed_instance.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_mssql_managed_instance.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_mssql_virtual_machine.md">          <zero-md id="azure_mssql_virtual_machine.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_mssql_virtual_machine.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_mysql_flexible_server.md">          <zero-md id="azure_mysql_flexible_server.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_mysql_flexible_server.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_mysql_server.md">          <zero-md id="azure_mysql_server.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_mysql_server.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_nat_gateway.md">          <zero-md id="azure_nat_gateway.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_nat_gateway.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_netapp_account.md">          <zero-md id="azure_netapp_account.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_netapp_account.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_netapp_capacity_pool.md">          <zero-md id="azure_netapp_capacity_pool.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_netapp_capacity_pool.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_network_connections.md">          <zero-md id="azure_network_connections.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_network_connections.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_network_ddos_protection_plan.md">          <zero-md id="azure_network_ddos_protection_plan.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_network_ddos_protection_plan.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_network_dnsresolver.md">          <zero-md id="azure_network_dnsresolver.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_network_dnsresolver.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_network_interface.md">          <zero-md id="azure_network_interface.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_network_interface.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_network_localnetworkgateways.md">          <zero-md id="azure_network_localnetworkgateways.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_network_localnetworkgateways.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_network_privateendpoints.md">          <zero-md id="azure_network_privateendpoints.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_network_privateendpoints.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_network_privatelinkservices.md">          <zero-md id="azure_network_privatelinkservices.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_network_privatelinkservices.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_network_publicipprefixes.md">          <zero-md id="azure_network_publicipprefixes.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_network_publicipprefixes.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_network_security_group.md">          <zero-md id="azure_network_security_group.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_network_security_group.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_network_virtualhubs.md">          <zero-md id="azure_network_virtualhubs.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_network_virtualhubs.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_network_virtualwans.md">          <zero-md id="azure_network_virtualwans.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_network_virtualwans.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_network_vpnconnections.md">          <zero-md id="azure_network_vpnconnections.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_network_vpnconnections.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_network_vpngateways.md">          <zero-md id="azure_network_vpngateways.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_network_vpngateways.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_network_vpnsites.md">          <zero-md id="azure_network_vpnsites.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_network_vpnsites.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_network_watcher_flow_log.md">          <zero-md id="azure_network_watcher_flow_log.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_network_watcher_flow_log.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_network_watcher.md">          <zero-md id="azure_network_watcher.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_network_watcher.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_operationalinsights_workspaces.md">          <zero-md id="azure_operationalinsights_workspaces.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_operationalinsights_workspaces.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_policy_assignment.md">          <zero-md id="azure_policy_assignment.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_policy_assignment.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_policy_definition.md">          <zero-md id="azure_policy_definition.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_policy_definition.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_postgresql_server.md">          <zero-md id="azure_postgresql_server.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_postgresql_server.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_powerbidedicated_capacity.md">          <zero-md id="azure_powerbidedicated_capacity.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_powerbidedicated_capacity.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_private_dns_zone.md">          <zero-md id="azure_private_dns_zone.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_private_dns_zone.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_provider.md">          <zero-md id="azure_provider.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_provider.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_public_ip.md">          <zero-md id="azure_public_ip.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_public_ip.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_purview_account.md">          <zero-md id="azure_purview_account.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_purview_account.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_recovery_services_vault.md">          <zero-md id="azure_recovery_services_vault.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_recovery_services_vault.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_redis_cache.md">          <zero-md id="azure_redis_cache.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_redis_cache.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_resource_group.md">          <zero-md id="azure_resource_group.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_resource_group.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_resource_link.md">          <zero-md id="azure_resource_link.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_resource_link.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_role_assignment.md">          <zero-md id="azure_role_assignment.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_role_assignment.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_role_definition.md">          <zero-md id="azure_role_definition.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_role_definition.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_route_table.md">          <zero-md id="azure_route_table.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_route_table.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_search_service.md">          <zero-md id="azure_search_service.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_search_service.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_security_center_auto_provisioning.md">          <zero-md id="azure_security_center_auto_provisioning.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_security_center_auto_provisioning.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_security_center_automation.md">          <zero-md id="azure_security_center_automation.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_security_center_automation.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_security_center_contact.md">          <zero-md id="azure_security_center_contact.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_security_center_contact.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_security_center_jit_network_access_policy.md">          <zero-md id="azure_security_center_jit_network_access_policy.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_security_center_jit_network_access_policy.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_security_center_setting.md">          <zero-md id="azure_security_center_setting.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_security_center_setting.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_security_center_sub_assessment.md">          <zero-md id="azure_security_center_sub_assessment.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_security_center_sub_assessment.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_security_center_subscription_pricing.md">          <zero-md id="azure_security_center_subscription_pricing.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_security_center_subscription_pricing.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_service_fabric_cluster.md">          <zero-md id="azure_service_fabric_cluster.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_service_fabric_cluster.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_servicebus_namespace.md">          <zero-md id="azure_servicebus_namespace.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_servicebus_namespace.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_signalr_service.md">          <zero-md id="azure_signalr_service.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_signalr_service.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_spring_cloud_service.md">          <zero-md id="azure_spring_cloud_service.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_spring_cloud_service.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_sql_database.md">          <zero-md id="azure_sql_database.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_sql_database.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_sql_instance_pool.md">          <zero-md id="azure_sql_instance_pool.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_sql_instance_pool.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_sql_managedinstancesdatabases.md">          <zero-md id="azure_sql_managedinstancesdatabases.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_sql_managedinstancesdatabases.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_sql_server.md">          <zero-md id="azure_sql_server.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_sql_server.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_sql_serversjobagents.md">          <zero-md id="azure_sql_serversjobagents.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_sql_serversjobagents.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_sql_virtualclusters.md">          <zero-md id="azure_sql_virtualclusters.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_sql_virtualclusters.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_sql_virtualmachinegroups.md">          <zero-md id="azure_sql_virtualmachinegroups.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_sql_virtualmachinegroups.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_storage_account.md">          <zero-md id="azure_storage_account.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_storage_account.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_storage_blob_service.md">          <zero-md id="azure_storage_blob_service.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_storage_blob_service.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_storage_blob.md">          <zero-md id="azure_storage_blob.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_storage_blob.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_storage_container.md">          <zero-md id="azure_storage_container.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_storage_container.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_storage_queue.md">          <zero-md id="azure_storage_queue.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_storage_queue.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_storage_share_file.md">          <zero-md id="azure_storage_share_file.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_storage_share_file.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_storage_sync.md">          <zero-md id="azure_storage_sync.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_storage_sync.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_storage_table_service.md">          <zero-md id="azure_storage_table_service.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_storage_table_service.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_storage_table.md">          <zero-md id="azure_storage_table.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_storage_table.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_stream_analytics_job.md">          <zero-md id="azure_stream_analytics_job.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_stream_analytics_job.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_streamanalytics_cluster.md">          <zero-md id="azure_streamanalytics_cluster.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_streamanalytics_cluster.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_subnet.md">          <zero-md id="azure_subnet.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_subnet.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_subscription.md">          <zero-md id="azure_subscription.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_subscription.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_synapse_workspace.md">          <zero-md id="azure_synapse_workspace.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_synapse_workspace.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_synapse_workspacesbigdatapools.md">          <zero-md id="azure_synapse_workspacesbigdatapools.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_synapse_workspacesbigdatapools.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_synapse_workspacessqlpools.md">          <zero-md id="azure_synapse_workspacessqlpools.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_synapse_workspacessqlpools.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_tenant.md">          <zero-md id="azure_tenant.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_tenant.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_timeseriesinsights_environments.md">          <zero-md id="azure_timeseriesinsights_environments.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_timeseriesinsights_environments.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_trafficmanager_profile.md">          <zero-md id="azure_trafficmanager_profile.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_trafficmanager_profile.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_virtual_network_gateway.md">          <zero-md id="azure_virtual_network_gateway.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_virtual_network_gateway.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_virtual_network.md">          <zero-md id="azure_virtual_network.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_virtual_network.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_virtualmachineimages_imagetemplates.md">          <zero-md id="azure_virtualmachineimages_imagetemplates.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_virtualmachineimages_imagetemplates.md?raw=true"></zero-md>          </div>
+    <div class="table" id="azure_web_serverfarms.md">          <zero-md id="azure_web_serverfarms.md" src="https://raw.githubusercontent.com/opengovern/schema/main/integrations/azure/azure_web_serverfarms.md?raw=true"></zero-md>          </div>
+</div>
+    </div>
+  </body>
+</html>

@@ -25,24 +25,128 @@
     ></script>
     <script src="app.js"></script>
   </head>
-  <body class="container">
-    <div class="col-12 h-100 m-2 d-flex flex-row gap-2">
-      <div class="col-3 col">
-        <div class="mt-2 mb-2 w-100 border-bottom pb-4 ">
-          <select class="form-select  w-100" aria-label="Default select example">
-            <option value="1">All Platform</option>
-            <option value="2">Github</option>
-            <option value="3">AWS</option>
-            <option value="4">Azure</option>
-            <option value="5">EntraID</option>
-          </select>
+  <body class="container mt-5">
+    <div class="col-12 h-100 m-2 d-flex flex-row gap-2 flex-wrap">
+      <div class="card d-flex p-4 flex-column">
+        <img
+          class="card-logo"
+          src="https://raw.githubusercontent.com/opengovern/website/main/connectors/icons/aws.svg"
+        />
+        <span
+          >Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s</span
+        >
+        <div class="card-link">
+          <a class="card-a">Learn more</a>
+          <div class="show-link" onclick="navigate('aws')">
+            Show Tables
+            <svg
+              width="800px"
+              height="800px"
+              viewBox="0 0 1024 1024"
+              class="icon"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M364.8 106.666667L298.666667 172.8 637.866667 512 298.666667 851.2l66.133333 66.133333L768 512z"
+                fill="#2196F3"
+              />
+            </svg>
+          </div>
         </div>
-        <div class="col d-flex flex-column gap-2 w-100 mt-2" id="table-list">
-           
       </div>
-      <div class="col-9 col  flex-column d-flex" id="tables">
-        
-            </div>
+      <div class="card d-flex p-4 flex-column">
+        <img
+          class="card-logo"
+          src="https://raw.githubusercontent.com/opengovern/website/main/connectors/icons/azure.svg"
+        />
+        <span
+          >Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s</span
+        >
+        <div class="card-link">
+          <a class="card-a">Learn more</a>
+          <div class="show-link" onclick="navigate('azure')">
+            Show Tables
+            <svg
+              width="800px"
+              height="800px"
+              viewBox="0 0 1024 1024"
+              class="icon"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M364.8 106.666667L298.666667 172.8 637.866667 512 298.666667 851.2l66.133333 66.133333L768 512z"
+                fill="#2196F3"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="card d-flex p-4 flex-column">
+        <img
+          class="card-logo"
+          src="https://raw.githubusercontent.com/opengovern/website/main/connectors/icons/entraid.svg"
+        />
+        <span
+          >Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s</span
+        >
+        <div class="card-link">
+          <a class="card-a">Learn more</a>
+          <div class="show-link" onclick="navigate('entraid')">
+            Show Tables
+            <svg
+              width="800px"
+              height="800px"
+              viewBox="0 0 1024 1024"
+              class="icon"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M364.8 106.666667L298.666667 172.8 637.866667 512 298.666667 851.2l66.133333 66.133333L768 512z"
+                fill="#2196F3"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="card d-flex p-4 flex-column">
+        <img
+          class="card-logo"
+          src="https://raw.githubusercontent.com/opengovern/website/main/connectors/icons/open-governance.svg"
+        />
+        <span
+          >Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s</span
+        >
+        <div class="card-link">
+          <a class="card-a">Learn more</a>
+          <div class="show-link" onclick="navigate('platform')">
+            Show Tables
+            <svg
+              width="800px"
+              height="800px"
+              viewBox="0 0 1024 1024"
+              class="icon"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M364.8 106.666667L298.666667 172.8 637.866667 512 298.666667 851.2l66.133333 66.133333L768 512z"
+                fill="#2196F3"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
