@@ -6,6 +6,7 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import Button from "@cloudscape-design/components/button";
 import { useEffect, useState } from "react";
+import Pagination from "@cloudscape-design/components/pagination";
 
 function App() {
   const [selected, setselected] = useState(false);
@@ -14,6 +15,8 @@ function App() {
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(true);
   const [types, setTypes] = useState([]);
+  const [page, setPage] = useState(1);
+  const [total, setTotal] = useState(0);
   const selectIntegration = (name) => {
     if (name) {
       setselected(true);
@@ -41,6 +44,7 @@ function App() {
       .then((response) => response.json())
       .then((text) => {
         setTypes(text);
+        setTotal(Math.abs(text.length/9));
       });
   };
   useEffect(() => {
@@ -112,7 +116,7 @@ function App() {
         <>
           <div className="container content card-content mt-2 main">
             <div class="col-12 m-2 d-flex flex-row gap-4 flex-wrap">
-              {types.map((type) => {
+              {types.slice((page-1)*9,page*9).map((type) => {
                 return (
                   <>
                     <div
@@ -129,7 +133,7 @@ function App() {
                           alt={type.Connector}
                           src={`https://raw.githubusercontent.com/opengovern/website/main/connectors/icons/${type.Icon}`}
                         />
-                        <span class="card-title">{type.Connector}</span>
+                        <span class="card-title">{type.Connector}{" "}({resources[type?.Directory]?.length})</span>
                       </div>
                       <span class={`card-tier ${type.Tier}`}>{type.Tier}</span>
 
@@ -157,6 +161,15 @@ function App() {
                   </>
                 );
               })}
+            </div>
+            <div className="col-12 d-flex justify-content-center ">
+              <Pagination
+                currentPageIndex={page}
+                onChange={({ detail }) =>
+                  setPage(detail.currentPageIndex)
+                }
+                pagesCount={total}
+              />
             </div>
           </div>
         </>
