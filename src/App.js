@@ -7,16 +7,21 @@ import rehypeRaw from "rehype-raw";
 import Button from "@cloudscape-design/components/button";
 import { useEffect, useState } from "react";
 import Pagination from "@cloudscape-design/components/pagination";
+import { Modal } from "@cloudscape-design/components";
+import Cal from "@calcom/embed-react";
 
 function App() {
   const [selected, setselected] = useState(false);
   const [name, setname] = useState();
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedIntegration, setSelectedIntegration] = useState();
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(true);
   const [types, setTypes] = useState([]);
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
+
+  const [open, setOpen] = useState(false);
   const selectIntegration = (name) => {
     if (name) {
       setselected(true);
@@ -56,12 +61,12 @@ function App() {
       {selected ? (
         <>
           <div className="container content">
-            <div className="col-3">
+            <div className="col-3 sidebar">
               <SideNavigation
                 activeHref={selectedIndex.toString()}
                 header={{
                   href: "1",
-                  text: `Tables(${resources[name].length})`,
+                  text: `${selectedIntegration.Connector} (${resources[name].length})`,
                 }}
                 onFollow={(event) => {
                   if (!event.detail.external) {
@@ -78,16 +83,17 @@ function App() {
                 })}
               />
             </div>
-            <div className="col-9">
+            <div className="col-9 tables">
               <div className="back">
-                <Button
+                <button
+                className="back-btn"
                   variant="primary"
                   onClick={() => {
                     setselected(false);
                   }}
                 >
                   Go back
-                </Button>
+                </button>
               </div>
               {name && !loading ? (
                 <>
@@ -116,7 +122,7 @@ function App() {
         <>
           <div className="container content card-content mt-2 main">
             <div class="col-12 m-2 d-flex flex-row gap-4 flex-wrap">
-              {types.slice((page-1)*9,page*9).map((type) => {
+              {types.slice((page - 1) * 9, page * 9).map((type) => {
                 return (
                   <>
                     <div
@@ -124,6 +130,9 @@ function App() {
                       onClick={() => {
                         if (type.Tier === "Community") {
                           selectIntegration(type.Directory);
+                          setSelectedIntegration(type);
+                        } else {
+                          setOpen(true);
                         }
                       }}
                     >
@@ -133,7 +142,9 @@ function App() {
                           alt={type.Connector}
                           src={`https://raw.githubusercontent.com/opengovern/website/main/connectors/icons/${type.Icon}`}
                         />
-                        <span class="card-title">{type.Connector}{" "}({resources[type?.Directory]?.length})</span>
+                        <span class="card-title">
+                          {type.Connector} <></>
+                        </span>
                       </div>
                       <span class={`card-tier ${type.Tier}`}>{type.Tier}</span>
 
@@ -141,7 +152,9 @@ function App() {
                       <div class="card-link">
                         <a class="card-a">Learn more</a>
                         <div class="show-link">
-                          Show Tables
+                          {type.Tier === "Community" && (
+                            <>{resources[type?.Directory]?.length} Tables</>
+                          )}{" "}
                           <svg
                             width="800px"
                             height="800px"
@@ -165,15 +178,26 @@ function App() {
             <div className="col-12 d-flex justify-content-center ">
               <Pagination
                 currentPageIndex={page}
-                onChange={({ detail }) =>
-                  setPage(detail.currentPageIndex)
-                }
+                onChange={({ detail }) => setPage(detail.currentPageIndex)}
                 pagesCount={total}
               />
             </div>
           </div>
         </>
       )}
+      <Modal
+        header="Try enterprise Edition"
+        size="large"
+        visible={open}
+        onDismiss={() => setOpen(false)}
+      >
+        <Cal
+          namespace="try-enterprise"
+          calLink="team/opengovernance/try-enterprise"
+          style={{ width: "100%", height: "100%", overflow: "scroll" }}
+          config={{ layout: "month_view" }}
+        />
+      </Modal>
     </>
   );
 }

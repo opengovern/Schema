@@ -1,10 +1,11 @@
 
 .card{
     width: 32%;
-    height: 220px!important;
+    height: 250px;
+    min-height: max-content;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: space-between;
     align-items: start;
     gap: 1.5rem;
 }
@@ -56,30 +57,30 @@ svg{
     margin-top: 2rem;
 }
 .sidebar{
-    width: 20%!important;
+    width: 18%!important;
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: start;
     max-height: 95vh;
+    height: 95vh;
     position: fixed;
     top: 2rem;
     left: 10%;
     gap: 0.5rem;
-    overflow-y: auto;
+    /* overflow-y: auto; */
 }
 .tables{
-    width: 64%;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
+   
     gap: 1rem;
-      position: fixed;
+    position: fixed;
     top: 2rem;
-    left: 32%;
+    left: 27%;
     height: 95vh;
-    overflow: scroll;
+    width: 70%;
+    /* height: 95vh; */
+    /* overflow-x: auto; */
+    /* overflow-y: scroll; */
 }
 body{
     height: 100vh;
@@ -109,8 +110,9 @@ body{
   /* margin: 5rem; */
   margin-top: 1.5rem;
   margin-left: 2rem;
-  max-height: 85vh;
-  overflow-y: auto;
+  max-height: 88vh;
+  height: 95vh;
+  overflow-y: scroll;
 
 }
 
@@ -155,7 +157,7 @@ body{
 
 body{
   height: 100vh;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   margin-bottom: 2rem;
   padding-bottom: 1rem;
 }
@@ -175,4 +177,17 @@ body{
   color: #B9E5E8;
   background-color: #7AB2D3;
   border: 1px solid #4A628A;
+}
+
+.back-btn{
+  background-color: #164085;
+  border: none;
+  color: white;
+  padding: 12px 20px 12px;
+  border-radius: 4px;
+  margin-right: 10vw;
+}
+
+body{
+  font-family: 'Lato', sans-serif !important;
 }

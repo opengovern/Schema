@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://opengovern.github.io/schema",
   "dependencies": {
+    "@calcom/embed-react": "^1.5.1",
     "@cloudscape-design/components": "^3.0.829",
     "@cloudscape-design/global-styles": "^1.0.32",
     "@testing-library/jest-dom": "^5.17.0",
