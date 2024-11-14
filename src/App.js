@@ -7,8 +7,9 @@ import rehypeRaw from "rehype-raw";
 import Button from "@cloudscape-design/components/button";
 import { useEffect, useState } from "react";
 import Pagination from "@cloudscape-design/components/pagination";
-import { Modal } from "@cloudscape-design/components";
+import { Icon, Modal } from "@cloudscape-design/components";
 import Cal from "@calcom/embed-react";
+import IntegrationCard from "./components/IntegrationCard";
 
 function App() {
   const [selected, setselected] = useState(false);
@@ -49,7 +50,7 @@ function App() {
       .then((response) => response.json())
       .then((text) => {
         setTypes(text);
-        setTotal(Math.abs(text.length/9));
+        setTotal(Math.abs(text.length/12));
       });
   };
   useEffect(() => {
@@ -121,13 +122,12 @@ function App() {
       ) : (
         <>
           <div className="container content card-content mt-2 main">
-            <div class="col-12 m-2 d-flex flex-row gap-4 flex-wrap">
-              {types.slice((page - 1) * 9, page * 9).map((type) => {
+            <div class="col-12 m-2 d-flex flex-row card-container  flex-wrap">
+              {types.slice((page - 1) * 12, page * 12).map((type) => {
                 return (
                   <>
-                    <div
-                      class="card d-flex p-4 flex-column"
-                      onClick={() => {
+                    <IntegrationCard
+                      onClickCard={() => {
                         if (type.Tier === "Community") {
                           selectIntegration(type.Directory);
                           setSelectedIntegration(type);
@@ -135,42 +135,13 @@ function App() {
                           setOpen(true);
                         }
                       }}
-                    >
-                      <div className="d-flex gap-3 flex-row">
-                        <img
-                          class="card-logo"
-                          alt={type.Connector}
-                          src={`https://raw.githubusercontent.com/opengovern/website/main/connectors/icons/${type.Icon}`}
-                        />
-                        <span class="card-title">
-                          {type.Connector} <></>
-                        </span>
-                      </div>
-                      <span class={`card-tier ${type.Tier}`}>{type.Tier}</span>
-
-                      <span className="card-desc">{type.Description}</span>
-                      <div class="card-link">
-                        <a class="card-a">Learn more</a>
-                        <div class="show-link">
-                          {type.Tier === "Community" && (
-                            <>{resources[type?.Directory]?.length} Tables</>
-                          )}{" "}
-                          <svg
-                            width="800px"
-                            height="800px"
-                            viewBox="0 0 1024 1024"
-                            class="icon"
-                            version="1.1"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M364.8 106.666667L298.666667 172.8 637.866667 512 298.666667 851.2l66.133333 66.133333L768 512z"
-                              fill="#2196F3"
-                            />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
+                      type={type.Connector}
+                      title={type.Connector}
+                      tier={type.Tier}
+                      count={resources[type?.Directory]?.length}
+                      logo={`https://raw.githubusercontent.com/opengovern/website/main/connectors/icons/${type.Icon}`}
+                    />
+                
                   </>
                 );
               })}
