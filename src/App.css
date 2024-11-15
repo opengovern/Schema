@@ -27,13 +27,15 @@
    
     gap: 1rem;
     position: fixed;
-    top: 2rem;
+    /* top: 2rem; */
     left: 27%;
     height: 95vh;
     width: 70%;
+    flex-direction: column;
+    display: flex;
     /* height: 95vh; */
     /* overflow-x: auto; */
-    /* overflow-y: scroll; */
+    overflow-y: scroll;
 }
 body{
     height: 100vh;
@@ -52,41 +54,7 @@ body{
   /* height: 100vh; */
 }
 
-.markdown{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: start;
-  gap: 1rem;
-  /* margin: 5rem; */
-  margin-top: 1.5rem;
-  margin-left: 2rem;
-  max-height: 88vh;
-  height: 95vh;
-  overflow-y: scroll;
 
-}
-
-
-.markdown span {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.markdown table{
-  width: 100%;
-  border-collapse: collapse;
-}
-.markdown th{
-  border: 1px solid black;
-  padding: 0.5rem;
-}
-.markdown td{
-  border: 1px solid black;
-  padding: 0.5rem;
-}
 .awsui_list_l0dv0_1behr_221{
   max-height: 85dvh;
     overflow: scroll;
@@ -115,11 +83,13 @@ body{
   color: white;
   padding: 12px 20px 12px;
   border-radius: 4px;
-  margin-right: 17vw;
+  margin-right: 14vw;
 }
 
 body{
-  font-family: 'Lato', sans-serif !important;
+    font-family: 'Lato', Helvetica, sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale 
 }
 
 .card-container{
@@ -136,4 +106,24 @@ body{
     gap: 4rem;
   }
   
+}
+
+.card-image{
+  width: 30px;
+  height: auto;
+}
+
+.custom-table{
+  padding: 2rem;
+  padding-top: 1rem;
+
+  padding-left: 3rem;
+
+}
+  .awsui_header-controls_wih1l_1200x_321{
+    padding-left: 0!important;
+  }
+.markdown{
+  padding: 2rem;
+  padding-left: 3rem;
 }

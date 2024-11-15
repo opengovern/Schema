@@ -6,10 +6,15 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import Button from "@cloudscape-design/components/button";
 import { useEffect, useState } from "react";
-import Pagination from "@cloudscape-design/components/pagination";
-import { Icon, Modal } from "@cloudscape-design/components";
+import { Icon, Link, Modal, Table } from "@cloudscape-design/components";
 import Cal from "@calcom/embed-react";
 import IntegrationCard from "./components/IntegrationCard";
+import Cards from "@cloudscape-design/components/cards";
+import Box from "@cloudscape-design/components/box";
+import SpaceBetween from "@cloudscape-design/components/space-between";
+import TextFilter from "@cloudscape-design/components/text-filter";
+import Header from "@cloudscape-design/components/header";
+import Pagination from "@cloudscape-design/components/pagination";
 
 function App() {
   const [selected, setselected] = useState(false);
@@ -21,6 +26,7 @@ function App() {
   const [types, setTypes] = useState([]);
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
+  const [row, setRow] = useState([]);
 
   const [open, setOpen] = useState(false);
   const selectIntegration = (name) => {
@@ -30,6 +36,24 @@ function App() {
       getMarkdown(name, 0);
     }
   };
+
+  const extractValuesfromTagsString = (str) => {
+    var tags = str.replace("# Columns", "").split("\n");
+    console.log(tags);
+    tags = tags.slice(3, tags.length - 2);
+    console.log(tags);
+    const temp_row = [];
+    tags.forEach((tag) => {
+      const columns = tag.split("</td>");
+      const data = {
+        name: columns[0].split("<td>")[1],
+        description: columns[1].split("<td>")[1],
+      };
+      temp_row.push(data);
+    });
+    setRow(temp_row);
+  };
+
   const getMarkdown = (name, index) => {
     const temp_index = index ? index : 0;
     setSelectedIndex(temp_index);
@@ -39,10 +63,13 @@ function App() {
     )
       .then((response) => response.text())
       .then((text) => {
+        extractValuesfromTagsString(text);
         setContent(text.replace("# Columns", ""));
+
         setLoading(false);
       });
   };
+
   const getConnectors = () => {
     fetch(
       `https://raw.githubusercontent.com/opengovern/website/main/connectors/connectors.json`
@@ -50,7 +77,10 @@ function App() {
       .then((response) => response.json())
       .then((text) => {
         setTypes(text);
-        setTotal(Math.abs(text.length/12));
+        setTotal(Math.abs(text.length / 12));
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
   useEffect(() => {
@@ -67,7 +97,7 @@ function App() {
                 activeHref={selectedIndex.toString()}
                 header={{
                   href: "1",
-                  text: `${selectedIntegration.Connector} (${resources[name].length})`,
+                  text: `${selectedIntegration.name} (${resources[name].length})`,
                 }}
                 onFollow={(event) => {
                   if (!event.detail.external) {
@@ -85,29 +115,71 @@ function App() {
               />
             </div>
             <div className="col-9 tables">
-              <div className="back">
-                <button
-                className="back-btn"
-                  variant="primary"
-                  onClick={() => {
-                    setselected(false);
-                  }}
-                >
-                  Go back
-                </button>
-              </div>
               {name && !loading ? (
                 <>
-                  <div className="markdown">
-                    <span className="title">
-                      {resources[name][selectedIndex]}
-                    </span>
-                    <ReactMarkdown
-                      children={content}
-                      remarkPlugins={[remarkGfm]}
-                      rehypePlugins={[rehypeRaw]}
-                      // linkTarget="_blank"
-                      // transformLinkUri={undefined}
+                  <div className="custom-table">
+                    <Table
+                      className="p-3"
+                      renderAriaLive={({
+                        firstIndex,
+                        lastIndex,
+                        totalItemsCount,
+                      }) =>
+                        `Displaying items ${firstIndex} to ${lastIndex} of ${totalItemsCount}`
+                      }
+                      columnDefinitions={[
+                        {
+                          id: "name",
+                          header: "Column name",
+                          cell: (item) => <>{item.name || "-"}</>,
+                          sortingField: "name",
+                          isRowHeader: true,
+                        },
+
+                        {
+                          id: "description",
+                          header: "Description",
+                          cell: (item) => item.description || "-",
+                        },
+                      ]}
+                      enableKeyboardNavigation
+                      items={row}
+                      loadingText="Loading resources"
+                      sortingDisabled
+                      empty={
+                        <Box
+                          margin={{ vertical: "xs" }}
+                          textAlign="center"
+                          color="inherit"
+                        >
+                          <SpaceBetween size="m">
+                            <b>No resources</b>
+                          </SpaceBetween>
+                        </Box>
+                      }
+                      header={
+                        <Header
+                          actions={
+                            <>
+                              <div className="back">
+                                <button
+                                  className="back-btn"
+                                  variant="primary"
+                                  onClick={() => {
+                                    setselected(false);
+                                  }}
+                                >
+                                  Go back
+                                </button>
+                              </div>
+                            </>
+                          }
+                          className="p-0"
+                        >
+                          {" "}
+                          {resources[name][selectedIndex]}{" "}
+                        </Header>
+                      }
                     />
                   </div>
                 </>
@@ -122,30 +194,92 @@ function App() {
       ) : (
         <>
           <div className="container content card-content mt-2 main">
-            <div class="col-12 m-2 d-flex flex-row card-container  flex-wrap">
-              {types.slice((page - 1) * 12, page * 12).map((type) => {
-                return (
-                  <>
-                    <IntegrationCard
-                      onClickCard={() => {
-                        if (type.Tier === "Community") {
-                          selectIntegration(type.Directory);
-                          setSelectedIntegration(type);
-                        } else {
-                          setOpen(true);
-                        }
-                      }}
-                      type={type.Connector}
-                      title={type.Connector}
-                      tier={type.Tier}
-                      count={resources[type?.Directory]?.length}
-                      logo={`https://raw.githubusercontent.com/opengovern/website/main/connectors/icons/${type.Icon}`}
-                    />
-                
-                  </>
-                );
+            <Cards
+              ariaLabels={{
+                itemSelectionLabel: (e, t) => `select ${t.name}`,
+                selectionGroupLabel: "Item selection",
+              }}
+              cardDefinition={{
+                header: (item) => (
+                  <Link
+                    className="w-100"
+                    onClick={() => {
+                      console.log(item);
+                      if (item.tier === "Community") {
+                        selectIntegration(item.directory);
+                        setSelectedIntegration(item);
+                      } else {
+                        setOpen(true);
+                      }
+                    }}
+                  >
+                    <div className="w-100 flex flex-row justify-content-between">
+                      <span>{item.name}</span>
+                    </div>
+                  </Link>
+                ),
+                sections: [
+                  {
+                    id: "logo",
+
+                    content: (item) => (
+                      <div className="w-100 d-flex justify-content-center mt-2 mb-2">
+                        <img
+                          className="card-image"
+                          src={item.logo}
+                          alt="placeholder"
+                        />
+                      </div>
+                    ),
+                  },
+                  // {
+                  //   id: "description",
+                  //   header: "Description",
+                  //   content: (item) => item.description,
+                  // },
+                  {
+                    id: "tier",
+                    header: "Tier",
+                    content: (item) => item.tier,
+                    width: 85,
+                  },
+                  {
+                    id: "tables",
+                    header: "Table",
+                    content: (item) => (item.count ? item.count : 0),
+                    width: 15,
+                  },
+                ],
+              }}
+              cardsPerRow={[{ cards: 1 }, { minWidth: 500, cards: 3 }]}
+              items={types.slice((page - 1) * 12, page * 12).map((type) => {
+                return {
+                  id: type.ID,
+                  tier: type.Tier,
+                  description: type.Description,
+                  name: type.Connector,
+                  count: resources[type?.Directory]?.length,
+                  directory: type?.Directory,
+                  logo: `https://raw.githubusercontent.com/opengovern/website/main/connectors/icons/${type.Icon}`,
+                };
               })}
-            </div>
+              loadingText="Loading resources"
+              stickyHeader
+              entireCardClickable
+              variant="full-page"
+              empty={
+                <Box
+                  margin={{ vertical: "xs" }}
+                  textAlign="center"
+                  color="inherit"
+                >
+                  <SpaceBetween size="m">
+                    <b>No resources</b>
+                  </SpaceBetween>
+                </Box>
+              }
+            />
+
             <div className="col-12 d-flex justify-content-center ">
               <Pagination
                 currentPageIndex={page}
