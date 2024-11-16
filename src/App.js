@@ -6,7 +6,7 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import Button from "@cloudscape-design/components/button";
 import { useEffect, useState } from "react";
-import { Icon, Link, Modal, Table } from "@cloudscape-design/components";
+import { Icon, Link, Modal, Select, Table } from "@cloudscape-design/components";
 import Cal from "@calcom/embed-react";
 import IntegrationCard from "./components/IntegrationCard";
 import Cards from "@cloudscape-design/components/cards";
@@ -21,6 +21,7 @@ function App() {
   const [name, setname] = useState();
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [selectedIntegration, setSelectedIntegration] = useState();
+  const [selectedTable, setSelectedTable] = useState();
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(true);
   const [types, setTypes] = useState([]);
@@ -33,14 +34,16 @@ function App() {
     if (name) {
       setselected(true);
       setname(name);
-      getMarkdown(name, 0);
+      if(window.innerWidth > 768){
+      getMarkdown(name, 0);}
+
     }
   };
 
   const extractValuesfromTagsString = (str) => {
     var tags = str.replace("# Columns", "").split("\n");
     console.log(tags);
-    tags = tags.slice(3, tags.length - 2);
+    tags = tags.slice(4, tags.length - 2);
     console.log(tags);
     const temp_row = [];
     tags.forEach((tag) => {
@@ -91,7 +94,7 @@ function App() {
     <>
       {selected ? (
         <>
-          <div className="container content">
+          <div className="container desktop-content">
             <div className="col-3 sidebar">
               <SideNavigation
                 activeHref={selectedIndex.toString()}
@@ -186,6 +189,225 @@ function App() {
               ) : (
                 <div className="markdown">
                   <span>Loading...</span>
+                </div>
+              )}
+            </div>
+          </div>
+          <div className="container desktop-content">
+            <div className="col-3 sidebar">
+              <SideNavigation
+                activeHref={selectedIndex.toString()}
+                header={{
+                  href: "1",
+                  text: `${selectedIntegration.name} (${resources[name].length})`,
+                }}
+                onFollow={(event) => {
+                  if (!event.detail.external) {
+                    event.preventDefault();
+                    getMarkdown(name, parseInt(event.detail.href));
+                  }
+                }}
+                items={resources[name].map((resource, index) => {
+                  return {
+                    type: "link",
+                    text: resource,
+                    href: index.toString(),
+                  };
+                })}
+              />
+            </div>
+            <div className="col-9 tables">
+              {name && !loading ? (
+                <>
+                  <div className="custom-table">
+                    <Table
+                      className="p-3"
+                      renderAriaLive={({
+                        firstIndex,
+                        lastIndex,
+                        totalItemsCount,
+                      }) =>
+                        `Displaying items ${firstIndex} to ${lastIndex} of ${totalItemsCount}`
+                      }
+                      columnDefinitions={[
+                        {
+                          id: "name",
+                          header: "Column name",
+                          cell: (item) => <>{item.name || "-"}</>,
+                          sortingField: "name",
+                          isRowHeader: true,
+                        },
+
+                        {
+                          id: "description",
+                          header: "Description",
+                          cell: (item) => item.description || "-",
+                        },
+                      ]}
+                      enableKeyboardNavigation
+                      items={row}
+                      loadingText="Loading resources"
+                      sortingDisabled
+                      empty={
+                        <Box
+                          margin={{ vertical: "xs" }}
+                          textAlign="center"
+                          color="inherit"
+                        >
+                          <SpaceBetween size="m">
+                            <b>No resources</b>
+                          </SpaceBetween>
+                        </Box>
+                      }
+                      header={
+                        <Header
+                          actions={
+                            <>
+                              <div className="back">
+                                <button
+                                  className="back-btn"
+                                  variant="primary"
+                                  onClick={() => {
+                                    setselected(false);
+                                  }}
+                                >
+                                  Go back
+                                </button>
+                              </div>
+                            </>
+                          }
+                          className="p-0"
+                        >
+                          {" "}
+                          {resources[name][selectedIndex]}{" "}
+                        </Header>
+                      }
+                    />
+                  </div>
+                </>
+              ) : (
+                <div className="markdown">
+                  <span>Loading...</span>
+                </div>
+              )}
+            </div>
+          </div>
+          <div className="container mobile-content">
+            <div className="col-3 sidebar">
+              <Select
+                selectedOption={selectedTable}
+                className="w-100"
+                virtualScroll
+                onChange={({ detail }) => {
+                  getMarkdown(name, parseInt(detail.selectedOption.value));
+                  setSelectedTable(detail.selectedOption);
+                }}
+                inlineLabelText="Plase select a table"
+                placeholder={`Select a ${name} Table`}
+                options={resources[name].map((resource, index) => {
+                  return {
+                    label: resource,
+                    value: index.toString(),
+                  };
+                })}
+              />
+            </div>
+            <div className="col-9 tables">
+              {name && !loading ? (
+                <>
+                  <div className="custom-table">
+                    <Table
+                      className="p-3"
+                      renderAriaLive={({
+                        firstIndex,
+                        lastIndex,
+                        totalItemsCount,
+                      }) =>
+                        `Displaying items ${firstIndex} to ${lastIndex} of ${totalItemsCount}`
+                      }
+                      columnDefinitions={[
+                        {
+                          id: "name",
+                          header: "Column name",
+                          cell: (item) => <>{item.name || "-"}</>,
+                          sortingField: "name",
+                          isRowHeader: true,
+                        },
+
+                        {
+                          id: "description",
+                          header: "Description",
+                          cell: (item) => item.description || "-",
+                        },
+                      ]}
+                      enableKeyboardNavigation
+                      items={row}
+                      loadingText="Loading resources"
+                      sortingDisabled
+                      empty={
+                        <Box
+                          margin={{ vertical: "xs" }}
+                          textAlign="center"
+                          color="inherit"
+                        >
+                          <SpaceBetween size="m">
+                            <b>No resources</b>
+                          </SpaceBetween>
+                        </Box>
+                      }
+                      header={
+                        <>
+                          {window.innerWidth > 768 ? (
+                            <Header
+                              actions={
+                                <>
+                                  <div className="back">
+                                    <button
+                                      className="back-btn"
+                                      variant="primary"
+                                      onClick={() => {
+                                        setselected(false);
+                                      }}
+                                    >
+                                      Go back
+                                    </button>
+                                  </div>
+                                </>
+                              }
+                              className="p-0"
+                            >
+                              {" "}
+                              {resources[name][selectedIndex]}{" "}
+                            </Header>
+                          ) : (
+                            <>
+                              {" "}
+                              {resources[name][selectedIndex]}{" "}
+                              <div className="back">
+                                <button
+                                  className="back-btn"
+                                  variant="primary"
+                                  onClick={() => {
+                                    setselected(false);
+                                  }}
+                                >
+                                  Go back
+                                </button>
+                              </div>
+                            </>
+                          )}
+                        </>
+                      }
+                    />
+                  </div>
+                </>
+              ) : (
+                <div className="markdown">
+                  {window.innerWidth > 768 ? (
+                    <span>Loading...</span>
+                  ) : (
+                    <span>Please Select a Table</span>
+                  )}
                 </div>
               )}
             </div>
