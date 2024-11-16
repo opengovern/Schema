@@ -9,20 +9,7 @@
     gap: 0.5rem;
     margin-top: 2rem;
 }
-.sidebar{
-    width: 18%!important;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-    max-height: 95vh;
-    height: 95vh;
-    position: fixed;
-    top: 2rem;
-    left: 10%;
-    gap: 0.5rem;
-    /* overflow-y: auto; */
-}
+
 .tables{
    
     gap: 1rem;
@@ -98,15 +85,7 @@ body{
     align-items: center;
 }
 
-@media screen and (max-width: 768px){
-  body{
-    overflow-y: scroll;
-  }
-  .card-container{
-    gap: 4rem;
-  }
-  
-}
+
 
 .card-image{
   width: 30px;
@@ -126,4 +105,59 @@ body{
 .markdown{
   padding: 2rem;
   padding-left: 3rem;
+}
+
+
+
+@media screen and (max-width: 768px){
+  body{
+    overflow-y: scroll;
+  }
+  .content{
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .card-container{
+    gap: 4rem;
+  }
+  .sidebar{
+    width: 100%!important;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    max-height: 200px;
+    height: 200px;
+    position: relative;
+    
+    gap: 0.5rem;
+    /* overflow-y: auto; */
+}
+.awsui_list_l0dv0_1behr_221{
+  max-height: 150px;
+    overflow: scroll;
+}
+.tables{
+   
+    gap: 1rem;
+    position: relative;
+    /* top: 2rem; */
+    top: 0;
+    left: 0%;
+    height: 70vh;
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    /* height: 95vh; */
+    /* overflow-x: auto; */
+    overflow-y: scroll;
+}
+.custom-table{
+  padding: 0rem;
+  padding-top: 5rem;
+
+  padding-left: 0rem;
+
+}
+  
 }
