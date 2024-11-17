@@ -30,8 +30,8 @@
     flex-direction: column;
     justify-content: start;
     align-items: start;
-    max-height: 95vh;
-    height: 95vh;
+    max-height: 80dvh;
+    height: 80dvh;
     position: fixed;
     top: 2rem;
     left: 10%;
@@ -71,7 +71,7 @@ body{
 
 
 .awsui_list_l0dv0_1behr_221{
-  max-height: 85dvh;
+  max-height: 80dvh;
     overflow: scroll;
 }
 
