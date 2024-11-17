@@ -155,7 +155,7 @@ body{
     flex-direction: column;
     justify-content: start;
     align-items: start;
-    max-height: 200px;
+    max-height: 70dvh;
     min-height: 100px;
     height: max-content;
     position: relative;
@@ -164,7 +164,7 @@ body{
     /* overflow-y: auto; */
 }
 .awsui_list_l0dv0_1behr_221{
-  max-height: 150px;
+  max-height: 70dvh;
     overflow: scroll;
 }
 .tables{
@@ -172,13 +172,15 @@ body{
     gap: 1rem;
     position: relative;
     /* top: 2rem; */
-    top: 0;
+    top: 2rem;
     left: 0%;
     height: 100%;
     margin-bottom: 2rem;
+    padding-bottom: 2rem;
     width: 100%;
     flex-direction: column;
     display: flex;
+    min-height: 70dvh;
     /* height: 95vh; */
     /* overflow-x: auto; */
     overflow-y: scroll;
@@ -208,6 +210,16 @@ body{
   padding: 8px 10px 8px;
   border-radius: 4px;
   margin-right: 0;
+  margin-top: 1rem;
+}
+.back-btn-mobile{
+  background-color: #164085;
+  border: none;
+  color: white;
+  padding: 4px 8px 4px;
+  border-radius: 4px;
+  margin-right: 0;
+  font-size: 12px;
   margin-top: 1rem;
 }
   
