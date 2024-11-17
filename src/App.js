@@ -317,7 +317,7 @@ function App() {
         </>
       ) : (
         <>
-          <div className="col-12 d-flex justify-content-end container mt-5 ">
+          <div className="col-12 d-flex justify-content-end container mt-2">
             <Pagination
               currentPageIndex={page}
               onChange={({ detail }) => setPage(detail.currentPageIndex)}
