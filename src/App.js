@@ -8,7 +8,6 @@ import Button from "@cloudscape-design/components/button";
 import { useEffect, useState } from "react";
 import { Icon, Link, Modal, Select, Table } from "@cloudscape-design/components";
 import Cal from "@calcom/embed-react";
-import IntegrationCard from "./components/IntegrationCard";
 import Cards from "@cloudscape-design/components/cards";
 import Box from "@cloudscape-design/components/box";
 import SpaceBetween from "@cloudscape-design/components/space-between";
@@ -28,6 +27,9 @@ function App() {
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
   const [row, setRow] = useState([]);
+  const [selectedItems, setSelectedItems] = useState([
+   
+  ]);
 
   const [open, setOpen] = useState(false);
   const selectIntegration = (name) => {
@@ -42,9 +44,7 @@ function App() {
 
   const extractValuesfromTagsString = (str) => {
     var tags = str.replace("# Columns", "").split("\n");
-    console.log(tags);
     tags = tags.slice(4, tags.length - 2);
-    console.log(tags);
     const temp_row = [];
     tags.forEach((tag) => {
       const columns = tag.split("</td>");
@@ -193,105 +193,7 @@ function App() {
               )}
             </div>
           </div>
-          <div className="container desktop-content">
-            <div className="col-3 sidebar">
-              <SideNavigation
-                activeHref={selectedIndex.toString()}
-                header={{
-                  href: "1",
-                  text: `${selectedIntegration.name} (${resources[name].length})`,
-                }}
-                onFollow={(event) => {
-                  if (!event.detail.external) {
-                    event.preventDefault();
-                    getMarkdown(name, parseInt(event.detail.href));
-                  }
-                }}
-                items={resources[name].map((resource, index) => {
-                  return {
-                    type: "link",
-                    text: resource,
-                    href: index.toString(),
-                  };
-                })}
-              />
-            </div>
-            <div className="col-9 tables">
-              {name && !loading ? (
-                <>
-                  <div className="custom-table">
-                    <Table
-                      className="p-3"
-                      renderAriaLive={({
-                        firstIndex,
-                        lastIndex,
-                        totalItemsCount,
-                      }) =>
-                        `Displaying items ${firstIndex} to ${lastIndex} of ${totalItemsCount}`
-                      }
-                      columnDefinitions={[
-                        {
-                          id: "name",
-                          header: "Column name",
-                          cell: (item) => <>{item.name || "-"}</>,
-                          sortingField: "name",
-                          isRowHeader: true,
-                        },
 
-                        {
-                          id: "description",
-                          header: "Description",
-                          cell: (item) => item.description || "-",
-                        },
-                      ]}
-                      enableKeyboardNavigation
-                      items={row}
-                      loadingText="Loading resources"
-                      sortingDisabled
-                      empty={
-                        <Box
-                          margin={{ vertical: "xs" }}
-                          textAlign="center"
-                          color="inherit"
-                        >
-                          <SpaceBetween size="m">
-                            <b>No resources</b>
-                          </SpaceBetween>
-                        </Box>
-                      }
-                      header={
-                        <Header
-                          actions={
-                            <>
-                              <div className="back">
-                                <button
-                                  className="back-btn"
-                                  variant="primary"
-                                  onClick={() => {
-                                    setselected(false);
-                                  }}
-                                >
-                                  Go back
-                                </button>
-                              </div>
-                            </>
-                          }
-                          className="p-0"
-                        >
-                          {" "}
-                          {resources[name][selectedIndex]}{" "}
-                        </Header>
-                      }
-                    />
-                  </div>
-                </>
-              ) : (
-                <div className="markdown">
-                  <span>Loading...</span>
-                </div>
-              )}
-            </div>
-          </div>
           <div className="container mobile-content">
             <div className="col-3 sidebar">
               <Select
@@ -421,12 +323,22 @@ function App() {
                 itemSelectionLabel: (e, t) => `select ${t.name}`,
                 selectionGroupLabel: "Item selection",
               }}
+              onSelectionChange={({ detail }) => {
+                const item = detail?.selectedItems[0];
+                  if (item.tier === "Community") {
+                    selectIntegration(item.directory);
+                    setSelectedIntegration(item);
+                  } else {
+                    setOpen(true);
+                  }
+                setSelectedItems(detail?.selectedItems ?? []);
+              }}
+              selectedItems={selectedItems}
               cardDefinition={{
                 header: (item) => (
                   <Link
                     className="w-100"
                     onClick={() => {
-                      console.log(item);
                       if (item.tier === "Community") {
                         selectIntegration(item.directory);
                         setSelectedIntegration(item);
@@ -445,7 +357,7 @@ function App() {
                     id: "logo",
 
                     content: (item) => (
-                      <div className="w-100 d-flex justify-content-center mt-2 mb-2">
+                      <div className="w-100 d-flex justify-content-start mt-2 mb-1">
                         <img
                           className="card-image"
                           src={item.logo}
@@ -489,6 +401,8 @@ function App() {
               stickyHeader
               entireCardClickable
               variant="full-page"
+              selectionType="single"
+              trackBy="name"
               empty={
                 <Box
                   margin={{ vertical: "xs" }}

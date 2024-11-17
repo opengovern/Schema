@@ -18,6 +18,12 @@
     gap: 0.5rem;
     margin-top: 2rem;
 }
+.mobile-content{
+  display: none;
+}
+.awsui_selection-control_p8a6i_1trdm_310{
+  display: none;
+}
 .sidebar{
     width: 18%!important;
     display: flex;
@@ -110,7 +116,8 @@ body{
 
 
 .card-image{
-  width: 30px;
+  width: 50px;
+  height: auto;
   height: auto;
 }
 
