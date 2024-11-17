@@ -312,8 +312,7 @@ function App() {
                                 </Header>
                               ) : (
                                 <>
-                                  {" "}
-                                  {resources[name][selectedIndex]}{" "}
+                                  <span className=" fs-5 fw-bold"> {resources[name][selectedIndex]}</span>
                                   <div className="back">
                                     <button
                                       className="back-btn"
