@@ -317,7 +317,14 @@ function App() {
         </>
       ) : (
         <>
-          <div className="container content card-content mt-2 main">
+          <div className="col-12 d-flex justify-content-end container mt-5 ">
+            <Pagination
+              currentPageIndex={page}
+              onChange={({ detail }) => setPage(detail.currentPageIndex)}
+              pagesCount={total}
+            />
+          </div>
+          <div className="container content card-content  main">
             <Cards
               ariaLabels={{
                 itemSelectionLabel: (e, t) => `select ${t.name}`,
@@ -325,12 +332,12 @@ function App() {
               }}
               onSelectionChange={({ detail }) => {
                 const item = detail?.selectedItems[0];
-                  if (item.tier === "Community") {
-                    selectIntegration(item.directory);
-                    setSelectedIntegration(item);
-                  } else {
-                    setOpen(true);
-                  }
+                if (item.tier === "Community") {
+                  selectIntegration(item.directory);
+                  setSelectedIntegration(item);
+                } else {
+                  setOpen(true);
+                }
                 setSelectedItems(detail?.selectedItems ?? []);
               }}
               selectedItems={selectedItems}
@@ -415,14 +422,6 @@ function App() {
                 </Box>
               }
             />
-
-            <div className="col-12 d-flex justify-content-center ">
-              <Pagination
-                currentPageIndex={page}
-                onChange={({ detail }) => setPage(detail.currentPageIndex)}
-                pagesCount={total}
-              />
-            </div>
           </div>
         </>
       )}
