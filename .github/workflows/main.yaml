@@ -30,10 +30,9 @@ jobs:
           key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-npm-
-      - name: Go to ui
-        run: cd ui 
       - name: Install Dependencies
         run: npm install
+        working-directory: ./ui
       - name: Configure Git User
         run: |
           git config  user.name "GitHub Actions"
@@ -46,3 +45,5 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: npm run deploy
+        working-directory: ./ui
+
