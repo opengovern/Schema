@@ -312,7 +312,10 @@ function App() {
                                 </Header>
                               ) : (
                                 <>
-                                  <span className=" fs-5 fw-bold"> {resources[name][selectedIndex]}</span>
+                                  <span className=" fs-5 fw-bold">
+                                    {" "}
+                                    {resources[name][selectedIndex]}
+                                  </span>
                                   <div className="back">
                                     <button
                                       className="back-btn"
@@ -418,7 +421,11 @@ function App() {
                   },
                 ],
               }}
-              cardsPerRow={[{ cards: 1 }, { minWidth: 500, cards: 3 }]}
+              cardsPerRow={[
+                { cards: 1 },
+                { minWidth: 750, cards: 3 },
+                { minWidth: 680, cards: 2 },
+              ]}
               items={types.slice((page - 1) * 12, page * 12).map((type) => {
                 return {
                   id: type.ID,
