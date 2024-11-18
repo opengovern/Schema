@@ -30,7 +30,8 @@ jobs:
           key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-npm-
-
+      - name: Go to ui
+        run: cd ui 
       - name: Install Dependencies
         run: npm install
       - name: Configure Git User
