@@ -1,1 +1,1 @@
-go run sync-job.go
+go run /sync-job/main.go
