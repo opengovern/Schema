@@ -26,7 +26,7 @@ func New(cfg config.SchemaConfig, logger *zap.Logger, informationService *servic
 }
 
 func (s API) Register(e *echo.Echo) {
-	g := e.Group("/api/v1/schema")
+	// g := e.Group("/api/v1/schema")
 }
 
 
