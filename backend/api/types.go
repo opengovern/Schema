@@ -1,30 +1,30 @@
 package api
 
-import "strings"
+import (
+	"strings"
+
+	"github.com/opengovern/schema/db/models"
+)
 
 
-type ComplianceResultSeverity string
 
 const (
-	ComplianceResultSeverityNone     ComplianceResultSeverity = "none"
-	ComplianceResultSeverityLow      ComplianceResultSeverity = "low"
-	ComplianceResultSeverityMedium   ComplianceResultSeverity = "medium"
-	ComplianceResultSeverityHigh     ComplianceResultSeverity = "high"
-	ComplianceResultSeverityCritical ComplianceResultSeverity = "critical"
+	ComplianceResultSeverityNone     db.ComplianceResultSeverity = "none"
+	ComplianceResultSeverityLow      db.ComplianceResultSeverity = "low"
+	ComplianceResultSeverityMedium   db.ComplianceResultSeverity = "medium"
+	ComplianceResultSeverityHigh     db.ComplianceResultSeverity = "high"
+	ComplianceResultSeverityCritical db.ComplianceResultSeverity = "critical"
 )
-func (s ComplianceResultSeverity) String() string {
-	return string(s)
-}
 
 
-var complianceResultSeveritiesSeverities = []ComplianceResultSeverity{
+var complianceResultSeveritiesSeverities = []db.ComplianceResultSeverity{
 	ComplianceResultSeverityNone,
 	ComplianceResultSeverityLow,
 	ComplianceResultSeverityMedium,
 	ComplianceResultSeverityHigh,
 	ComplianceResultSeverityCritical,
 }
-func ParseComplianceResultSeverity(s string) ComplianceResultSeverity {
+func ParseComplianceResultSeverity(s string) db.ComplianceResultSeverity {
 	s = strings.ToLower(s)
 	for _, sev := range complianceResultSeveritiesSeverities {
 		if s == strings.ToLower(sev.String()) {
@@ -34,8 +34,8 @@ func ParseComplianceResultSeverity(s string) ComplianceResultSeverity {
 	return ""
 }
 
-func ParseComplianceResultSeverities(list []string) []ComplianceResultSeverity {
-	result := make([]ComplianceResultSeverity, 0, len(list))
+func ParseComplianceResultSeverities(list []string) []db.ComplianceResultSeverity {
+	result := make([]db.ComplianceResultSeverity, 0, len(list))
 	for _, s := range list {
 		result = append(result, ParseComplianceResultSeverity(s))
 	}

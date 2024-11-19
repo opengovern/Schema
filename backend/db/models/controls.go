@@ -5,7 +5,7 @@ import (
 
 	"github.com/lib/pq"
 	"github.com/opengovern/og-util/pkg/model"
-	"github.com/opengovern/schema/api"
+
 )
 
 
@@ -30,7 +30,7 @@ type Control struct {
 	QueryID            *string
 	Query              *Query      `gorm:"foreignKey:QueryID;references:ID;constraint:OnDelete:SET NULL"`
 	Benchmarks         []Benchmark `gorm:"many2many:benchmark_controls;"`
-	Severity           api.ComplianceResultSeverity
+	Severity           ComplianceResultSeverity
 	ManualVerification bool
 	Managed            bool
 	CreatedAt          time.Time

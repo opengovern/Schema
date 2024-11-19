@@ -77,3 +77,8 @@ type BenchmarkControls struct {
 	BenchmarkID string
 	ControlID   string
 }
+
+type ComplianceResultSeverity string
+func (s ComplianceResultSeverity) String() string {
+	return string(s)
+}
